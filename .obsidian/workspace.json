@@ -13,7 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "algorithm/README.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3883c166087f42c2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "front-end/cache.md",
                 "mode": "source",
                 "source": false
               }
@@ -68,7 +80,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -134,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "algorithm/README.md",
+                "file": "front-end/cache.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "algorithm/README.md",
+                "file": "front-end/cache.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +186,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "algorithm/README.md"
+                "file": "front-end/cache.md"
               }
             }
           }
@@ -195,12 +207,18 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "5bd5bdfcf1556012",
+  "active": "3883c166087f42c2",
   "lastOpenFiles": [
-    "vim notes.md",
+    "pics/cache.drawio.png",
+    "front-end/cache.md",
+    "react/react整体架构.md",
+    "front-end",
+    "pics",
     "algorithm/README.md",
-    "algorithm",
+    "react",
     "migrate-file.md",
-    "README.md"
+    "README.md",
+    "vim notes.md",
+    "algorithm"
   ]
 }
