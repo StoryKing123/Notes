@@ -1,1 +1,1 @@
-![[cache.drawio.png]]
+![test](https://github.com/StoryKing123/Notes/blob/3a5e92b43838abd13c63195cba95fadf7787d6a8/pics/cache.drawio.png)
