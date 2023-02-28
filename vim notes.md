@@ -16,7 +16,7 @@
 在当前行查找字符:`f`
 移动到下一单词的开头:`w`
 移动到上一单词的开头:`b`
-移动到上/下一段落:`{``}`	
+移动到上/下一段落:`{` `}`	
 移动到光标所在单词的末尾:`e`
 移动光标到**匹配**光标当前所在单词的**下**一个单词:`*`
 移动光标到**匹配**光标当前所在单词的**上**一个单词:`#`
@@ -31,7 +31,7 @@ delete同理 `da"` 
 标记当前位置: `m{a-zA-Z}` 
 跳转到标记的所在行的第一个非空白字符: `'{a-zA-Z}` 
 跳转到标记所在行，标记所在的列: ``{a-zA-Z}` 
-
+返回上次/下次光标位置: `Ctrl + i/o`
 # 编辑
 
 复制当前行: `yy`
@@ -69,3 +69,24 @@ delete同理 `da"` 
 
 进入可视模式:`v`/`V`
 
+
+
+# neovim断言
+在neovim中进行断言与vim中不一样
+具体看
+[neovim]([An Introduction to Lookaround Regular Expression in Neovim/Vim - jdhao's digital space](https://jdhao.github.io/2018/10/18/regular_expression_nvim/))
+[vim]([正则表达式 – 语法 | 菜鸟教程 (runoob.com)](https://www.runoob.com/regexp/regexp-syntax.html))
+
+## lookhead
+
+> **foo**bar foo barfoo
+
+假如需要寻找bar前面的foo
+`/foo\(bar\)\@=`
+
+## lookbehind
+
+> foobar foo bar**foo**
+
+寻找bar后面的foo
+`/foo\(bar\)\@!`

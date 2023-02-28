@@ -54,9 +54,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "7ca6fde180ac5852",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "algorithm/README.MD.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -122,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vim notes.md",
+                "file": "algorithm/README.MD.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "vim notes.md",
+                "file": "algorithm/README.MD.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "vim notes.md"
+                "file": "algorithm/README.MD.md"
               }
             }
           }
@@ -183,9 +195,11 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "bdf8060f6380627a",
+  "active": "5bd5bdfcf1556012",
   "lastOpenFiles": [
     "vim notes.md",
+    "algorithm/README.MD.md",
+    "algorithm",
     "migrate-file.md",
     "README.md"
   ]
