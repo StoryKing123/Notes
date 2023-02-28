@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "algorithm/README.MD.md",
+                "file": "algorithm/README.md",
                 "mode": "source",
                 "source": false
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "algorithm/README.MD.md",
+                "file": "algorithm/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "algorithm/README.MD.md",
+                "file": "algorithm/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "algorithm/README.MD.md"
+                "file": "algorithm/README.md"
               }
             }
           }
@@ -198,7 +198,7 @@
   "active": "5bd5bdfcf1556012",
   "lastOpenFiles": [
     "vim notes.md",
-    "algorithm/README.MD.md",
+    "algorithm/README.md",
     "algorithm",
     "migrate-file.md",
     "README.md"
