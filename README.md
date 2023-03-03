@@ -2,7 +2,8 @@
 
 # 前端
 
-  
+[为什么打点要用gif]([https://toutiao.io/posts/xpy6p8/preview](https://toutiao.io/posts/xpy6p8/preview))
+
 
 ## 博客
 
@@ -15,6 +16,8 @@
 [https://github.com/yanfeizhang/coder-kung-fu](https://github.com/yanfeizhang/coder-kung-fu)
 
 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library)
+
+[[[首页-蚊子-前端博客 (xiabingbao.com)](https://www.xiabingbao.com/)]]
 
 ## 位运算
 

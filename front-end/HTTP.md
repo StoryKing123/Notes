@@ -87,6 +87,45 @@
 
 # TLS1.2
 
+
+
+
+
+# TLS1.3
+> TLS1.3握手流程
+
+---
+
+TLS 1.3 握手流程是如下所示：
+
+1.  Client Hello：客户端向服务器发送 Client Hello 消息，其中包含 TLS 版本号、一个 Client Random 值（随机数）、支持的密码套件、支持的压缩算法、SNI（Server Name Indication，服务器名称指示）等信息。
+    
+2.  Server Hello：服务器从客户端支持的密码套件中选取一组加密算法，并向客户端发送 Server Hello 消息，其中包含 TLS 版本号、一个 Server Random 值、选定的加密算法、选定的压缩算法等信息。
+    
+3.  Encrypted Extensions：服务器向客户端发送 Encrypted Extensions 消息，其中包含服务器的一些扩展信息，例如支持的 ALPN 协议、证书状态请求等。
+    
+4.  Certificate：如果服务器需要进行身份验证，它会将自己的证书链发送给客户端。证书链中的每个证书都是由一个受信任的证书颁发机构（CA）签名的，以证明该服务器的身份。
+    
+5.  Certificate Verify：如果服务器使用了基于证书的身份验证机制，那么它还需要向客户端发送 Certificate Verify 消息，以证明自己拥有证书中所述的私钥。
+    
+6.  Finished：客户端和服务器都会计算一组密钥，并将其用于生成 Finished 消息。这些消息包含了之前所有握手阶段的信息的哈希值，用于验证握手是否成功完成。
+    
+7.  Application Data：一旦完成了握手过程，客户端和服务器就可以开始发送加密的应用数据。
+    
+
+---
+
+> 这个流程需要几个RTT
+
+---
+
+TLS 1.3 握手流程需要最少 1 个 RTT（Round Trip Time），但可以通过 0-RTT 模式来实现 0 个 RTT。
+
+在标准的 TLS 1.3 握手流程中，需要 1 个 RTT 来完成握手过程。客户端发送 Client Hello 消息，服务器响应 Server Hello 和 Encrypted Extensions 消息，然后发送 Certificate、Certificate Verify 和 Finished 消息。客户端接收到这些消息后，会发送自己的 Finished 消息，这样握手过程就完成了。这个过程需要 1 个 RTT，也就是客户端发送消息到服务器，服务器响应消息到客户端，再次客户端发送 Finished 消息到服务器。
+
+但是，TLS 1.3 还引入了 0-RTT 模式，可以实现 0 个 RTT 的握手过程。在 0-RTT 模式下，客户端会在之前与服务器通信过的会话中缓存加密密钥，然后在新会话中使用这些密钥来发送加密的应用数据。这种方式可以避免握手延迟，但也存在一定的安全风险，因为攻击者可能会利用这些密钥来欺骗服务器。因此，在使用 0-RTT 模式时需要特别小心，并在必要时采取额外的安全措施。
+
+
 # 文件
 
 [Untitled-2022-02-15-1827.png](https://www.yuque.com/attachments/yuque/0/2022/png/22244142/1648195802088-82c60640-62a5-49cf-a747-e3d76adbcd77.png?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2022%2Fpng%2F22244142%2F1648195802088-82c60640-62a5-49cf-a747-e3d76adbcd77.png%22%2C%22name%22%3A%22Untitled-2022-02-15-1827.png%22%2C%22size%22%3A2224976%2C%22type%22%3A%22image%2Fpng%22%2C%22ext%22%3A%22png%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22mode%22%3A%22title%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22u408f3134-0ff6-48f9-9421-939da4b82a9%22%2C%22taskType%22%3A%22upload%22%2C%22id%22%3A%22ue9f2b6b6%22%2C%22card%22%3A%22file%22%7D)
@@ -94,3 +133,4 @@
 # 引用
 
 [你猜一个 TCP 连接上面能发多少个 HTTP 请求](https://zhuanlan.zhihu.com/p/61423830) [HTTP1、HTTP2、HTTP3](https://juejin.cn/post/6855470356657307662#heading-11) [https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP)3 [https://juejin.cn/post/6868515600432857095](https://juejin.cn/post/6868515600432857095) [https://juejin.cn/post/7047013644445417480#heading-11](https://juejin.cn/post/7047013644445417480#heading-11) [https://juejin.cn/post/6844904100035821575#comment](https://juejin.cn/post/6844904100035821575#comment) [https://juejin.cn/post/7077550129229594632](https://juejin.cn/post/7077550129229594632)
+[[一篇文章搞懂密码学基础及SSL/TLS协议 | CatBro's Blog (catbro666.github.io)](https://catbro666.github.io/posts/e92ef4b4/)]
