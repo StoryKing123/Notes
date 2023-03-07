@@ -79,28 +79,14 @@
             "id": "ccb4951c03eb56d0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "algorithm/README.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7e2499450f160556",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "front-end/ReactCommit.md",
-                "mode": "source",
-                "source": false
+                "file": "pics/Pasted image 20230307160030.png"
               }
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -129,7 +115,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "优先级",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -166,7 +152,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "front-end/ReactCommit.md",
+                "file": "pics/Pasted image 20230307160030.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +169,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "front-end/ReactCommit.md",
+                "file": "pics/Pasted image 20230307160030.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -206,7 +192,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "front-end/ReactCommit.md"
+                "file": "pics/Pasted image 20230307160030.png"
               }
             }
           }
@@ -227,43 +213,46 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "7e2499450f160556",
+  "active": "5bd5bdfcf1556012",
   "lastOpenFiles": [
-    "README.md",
+    "front-end/React优先级.md",
+    "pics/Pasted image 20230307184338.png",
+    "pics/Pasted image 20230307184219.png",
+    "pics/Pasted image 20230307160030.png",
+    "未命名.canvas",
+    "react/react整体架构.md",
+    "front-end/调试react源码.md",
+    "front-end/浏览器的一帧.md",
+    "front-end/浏览器架构.md",
+    "front-end/浏览器处理事件.md",
+    "front-end/执行render之前的步骤.md",
+    "front-end/执行render，调度之前.md",
+    "front-end/ReactReconciler.md",
     "front-end/ReactCommit.md",
-    "front-end/React结构.md",
     "front-end/React流程.md",
+    "english/2023.3 生词汇.md",
+    "README.md",
+    "front-end/React结构.md",
     "front-end/HTTP.md",
     "pics/Pasted image 20230228224513.png",
     "pics/Pasted image 20230306175705.png",
     "pics/Pasted image 20230306175608.png",
-    "React优先级.md",
     "pics/Pasted image 20230306175307.png",
-    "front-end/ReactReconciler.md",
     "front-end/React开始调度.md",
     "english/vocabulary/2023-3.md",
-    "english/未命名 1.md",
     "english/vocabulary",
     "algorithm/README.md",
     "english",
-    "front-end/浏览器处理事件.md",
-    "front-end/浏览器架构.md",
     "front-end/git命令.md",
-    "front-end/浏览器的一帧.md",
     "front-end/use react in MDA.md",
-    "front-end/执行render之前的步骤.md",
-    "front-end/执行render，调度之前.md",
     "front-end/cache.md",
-    "front-end/调试react源码.md",
     "vim notes.md",
     "front-end/debug JS in MDA.md",
     "pics/Pasted image 20230302162539.png",
     "pics/Pasted image 20230302162525.png",
     "pics/Pasted image 20230302160845.png",
     "migrate-file.md",
-    "react/react整体架构.md",
     "react/未命名.md",
-    "pics/cache.drawio.png",
     "front-end",
     "pics",
     "react",

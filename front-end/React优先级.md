@@ -6,6 +6,7 @@ React中有自己两套优先级
 # Lane
 
 
+![[Pasted image 20230307160030.png]]
 
 
 # 事件优先级
@@ -13,6 +14,23 @@ React中有自己两套优先级
 -   ContinuousEventPriority 连续事件优先级
 -   DefaultEventPriority 默认事件优先级
 -   IdleEventPriority 空闲时间优先级
+
+
+# Schedule优先级
+* ImmediateSchedulerPriority
+* UserBlockingSchedulerPriority
+* NormalSchedulerPriority
+* IdleSchedulerPriority
+* NormalSchedulerPriority
+
+
+## EventPriority 转 SchedulePriority
+![[Pasted image 20230307184219.png]]
+
+
+# Lane 转 EventPriority
+![[Pasted image 20230307184338.png]]
+
 
 Lane <=>Event Priority <=>Schedule Priority
 
