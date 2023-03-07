@@ -6,7 +6,7 @@ React中有自己两套优先级
 # Lane
 
 
-![[Pasted image 20230307160030.png]]
+![[lanes.png]]
 
 
 # 事件优先级
@@ -25,11 +25,11 @@ React中有自己两套优先级
 
 
 ## EventPriority 转 SchedulePriority
-![[Pasted image 20230307184219.png]]
+![[lanes_to_event_schedule.png]]
 
 
 # Lane 转 EventPriority
-![[Pasted image 20230307184338.png]]
+![[lanes_to_event_priority.png]]
 
 
 Lane <=>Event Priority <=>Schedule Priority
