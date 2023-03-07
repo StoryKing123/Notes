@@ -3,11 +3,9 @@ React中有自己两套优先级
 
 一套是Lane，一套是事件优先级
 
-# Lane
+# Lane.
 
-
-![[lanes.png]]
-
+![](https://github.com/StoryKing123/Notes/raw/0dcfed923b1af57ed9132b6f4a19284dd3894883/pics/lanes.png)
 
 # 事件优先级
 -   DiscreteEventPriority 离散事件优先级
@@ -25,11 +23,12 @@ React中有自己两套优先级
 
 
 ## EventPriority 转 SchedulePriority
-![[lanes_to_event_schedule.png]]
-
+![](https://github.com/StoryKing123/Notes/raw/0dcfed923b1af57ed9132b6f4a19284dd3894883/pics/lanes_to_event_schedule.png)
 
 # Lane 转 EventPriority
-![[lanes_to_event_priority.png]]
+
+
+![](https://github.com/StoryKing123/Notes/raw/0dcfed923b1af57ed9132b6f4a19284dd3894883/pics/lanes_to_event_priority.png)
 
 
 Lane <=>Event Priority <=>Schedule Priority

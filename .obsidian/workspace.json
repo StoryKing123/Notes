@@ -69,24 +69,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "front-end/浏览器架构.md",
+                "file": "front-end/React优先级.md",
                 "mode": "source",
                 "source": false
               }
             }
-          },
-          {
-            "id": "ccb4951c03eb56d0",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "pics/lanes_to_event_schedule.png"
-              }
-            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -115,7 +105,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "优先级",
+                "query": "github",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -152,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "pics/lanes_to_event_schedule.png",
+                "file": "front-end/React优先级.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -169,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "pics/lanes_to_event_schedule.png",
+                "file": "front-end/React优先级.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -192,7 +182,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "pics/lanes_to_event_schedule.png"
+                "file": "front-end/React优先级.md"
               }
             }
           }
@@ -213,39 +203,40 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "5bd5bdfcf1556012",
+  "active": "6b8da5f1bc274e4f",
   "lastOpenFiles": [
-    "pics/lanes.png",
-    "pics/lanes_to_event_schedule.png",
-    "pics/lanes_to_event_priority.png",
+    "front-end/浏览器架构.md",
+    "[lanes.png.md",
     "front-end/React优先级.md",
+    "front-end/cache.md",
+    "front-end/执行render之前的步骤.md",
+    "front-end/执行render，调度之前.md",
+    "front-end/use react in MDA.md",
+    "front-end/React结构.md",
+    "front-end/React流程.md",
+    "front-end/React开始调度.md",
+    "front-end/浏览器处理事件.md",
+    "pics/lanes_to_event_schedule.png",
+    "pics/lanes.png",
+    "pics/lanes_to_event_priority.png",
     "未命名.canvas",
     "react/react整体架构.md",
     "front-end/调试react源码.md",
     "front-end/浏览器的一帧.md",
-    "front-end/浏览器架构.md",
-    "front-end/浏览器处理事件.md",
-    "front-end/执行render之前的步骤.md",
-    "front-end/执行render，调度之前.md",
     "front-end/ReactReconciler.md",
     "front-end/ReactCommit.md",
-    "front-end/React流程.md",
     "english/2023.3 生词汇.md",
     "README.md",
-    "front-end/React结构.md",
     "front-end/HTTP.md",
     "pics/Pasted image 20230228224513.png",
     "pics/Pasted image 20230306175705.png",
     "pics/Pasted image 20230306175608.png",
     "pics/Pasted image 20230306175307.png",
-    "front-end/React开始调度.md",
     "english/vocabulary/2023-3.md",
     "english/vocabulary",
     "algorithm/README.md",
     "english",
     "front-end/git命令.md",
-    "front-end/use react in MDA.md",
-    "front-end/cache.md",
     "vim notes.md",
     "front-end/debug JS in MDA.md",
     "pics/Pasted image 20230302162539.png",
