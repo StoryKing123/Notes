@@ -94,18 +94,15 @@ let completedWork = unitOfWork;
   
 
 completeWork
-
 -   根据wip的tag进行不同分支处理
-
--   针对普通组件
-
+-   针对普通组件(HostComponent为例子)
+	- 如果是update，就执行updateHostComponent 判断是否有属性变化，如果有则找出变化的属性，并标记Update flag
+	- 如果是mount，则执行下面操作
+		- createInstance 创建DOM
+		- appendAllChildren 对children执行appendChild
+		- finalizeInitialChildren 设置DOM Element属性
 -   bubbleProperties 根据fiber.child及fiber.child.sibling更新subtreeFlags和childLanes
 
--   HostComponent
-
--   bubbleProperties
--   createInstance创建DOOM
--   appendAllChildren添加DOM
 
 
 

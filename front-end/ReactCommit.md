@@ -904,7 +904,7 @@ commitRoot
 		 React会执行所有需要更新布局的副作用操作。这些操作包括获取节点尺寸、位置、滚动位置等。执行LayoutEffect的创建函数
 *  收尾
 	*  根据rootDoesHavePassiveEffect判断赋值相关变量
-	*  执行ensureRootIsScheduled确保被调度
+	*  执行ensureRootIsScheduled确保被调度(有两种原因会开启新的调度，commt阶段出发了新的调度，比如在useLayoutEffect回调中触发更新，有遗留的更新未处理)
 	*  执行flushSyncCallbackQueue处理componentDidMount等生命周期或者useLayoutEffect等同步任务
 
 
