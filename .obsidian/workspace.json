@@ -20,103 +20,75 @@
             }
           },
           {
-            "id": "3883c166087f42c2",
+            "id": "33320e7249bb3475",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "front-end/cache.md",
+                "file": "front-end/React开始调度.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "a8f9af0298c11cb6",
+            "id": "f58e68278478cd5b",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          },
+          {
+            "id": "123d9e0709814b24",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "front-end/浏览器的一帧.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "efb555262602a1fa",
+            "id": "afb403225c5e7ad7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "front-end/use react in MDA.md",
+                "file": "front-end/git命令.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "e375d3479918e399",
+            "id": "6b8da5f1bc274e4f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "front-end/ReactCommit.md",
+                "file": "english/2023.3 生词汇.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "45e01da171c4f202",
+            "id": "2c9b3c30fa4100a0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "migrate-file.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "992aa417427e20b7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "migrate-file.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "bdf8060f6380627a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "vim notes.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7ca6fde180ac5852",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "algorithm/README.md",
+                "file": "english/2023.3 生词汇.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -145,7 +117,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "github",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -182,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "front-end/ReactCommit.md",
+                "file": "english/2023.3 生词汇.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -199,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "front-end/ReactCommit.md",
+                "file": "english/2023.3 生词汇.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -222,7 +194,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "front-end/ReactCommit.md"
+                "file": "english/2023.3 生词汇.md"
               }
             }
           }
@@ -243,50 +215,51 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "e375d3479918e399",
+  "active": "2c9b3c30fa4100a0",
   "lastOpenFiles": [
-    "algorithm/README.md",
+    "README.md",
+    "migrate-file.md",
+    "front-end/浏览器的一帧.md",
     "front-end/ReactReconciler.md",
-    "front-end/ReactCommit.md",
-    "front-end/React优先级.md",
+    "front-end/React流程.md",
+    "front-end/浏览器架构.md",
+    "front-end/浏览器处理事件.md",
+    "front-end/执行render之前的步骤.md",
+    "front-end/执行render，调度之前.md",
+    "front-end/HTTP.md",
+    "english/2023.3 生词汇.md",
+    "front-end/git命令.md",
     "front-end/React开始调度.md",
+    "algorithm/README.md",
     "front-end/手撕代码/compose pipe.md",
     "front-end/手撕代码",
-    "未命名.canvas",
+    "front-end/React优先级.md",
+    "[lanes.png.md",
+    "front-end/cache.md",
+    "front-end/use react in MDA.md",
+    "front-end/React结构.md",
     "pics/lanes_to_event_schedule.png",
-    "pics/lanes_to_event_priority.png",
     "pics/lanes.png",
+    "pics/lanes_to_event_priority.png",
+    "未命名.canvas",
+    "react/react整体架构.md",
+    "front-end/调试react源码.md",
+    "front-end/ReactCommit.md",
+    "pics/Pasted image 20230228224513.png",
     "pics/Pasted image 20230306175705.png",
     "pics/Pasted image 20230306175608.png",
     "pics/Pasted image 20230306175307.png",
+    "english/vocabulary/2023-3.md",
+    "english/vocabulary",
+    "english",
+    "vim notes.md",
+    "front-end/debug JS in MDA.md",
     "pics/Pasted image 20230302162539.png",
     "pics/Pasted image 20230302162525.png",
     "pics/Pasted image 20230302160845.png",
-    "pics/Pasted image 20230228224513.png",
-    "english/2023.3 生词汇.md",
-    "front-end/调试react源码.md",
-    "front-end/浏览器的一帧.md",
-    "front-end/浏览器架构.md",
-    "front-end/浏览器处理事件.md",
-    "front-end/执行render，调度之前.md",
-    "front-end/执行render之前的步骤.md",
-    "front-end/git命令.md",
-    "front-end/React结构.md",
-    "front-end/React流程.md",
-    "english/未命名 1.md",
-    "english",
-    "front-end/HTTP.md",
-    "front-end/debug JS in MDA.md",
-    "front-end/cache.md",
-    "react/react整体架构.md",
-    "react/未命名.md",
-    "front-end/use react in MDA.md",
-    "README.md",
     "front-end",
     "pics",
     "react",
-    "migrate-file.md",
-    "vim notes.md",
     "algorithm"
   ]
 }
