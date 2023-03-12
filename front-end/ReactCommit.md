@@ -896,16 +896,19 @@ commitRoot
 	-   如果fiber及其子tree 有PassiveMask Flag 则调度flushPassiveEffects(UseEffect)
 -  如果fiber及其子tree有其他Flag，则进行commit三阶段
 	*   commitBeforeMutationEffects
-		 在此阶段，React会执行所有在DOM更新之前需要执行的副作用操作。这些副作用操作包括获取布局信息、调用ref回调函数、执行生命周期方法等。
+		 在此阶段，React会执行所有在DOM更新之前需要执行的副作用操作。这些副作用操作包括获取布局信息、调用ref回调函数、执行生命周期方法等。执行lassCompoent的getSnapshotBeforeUpdate。清空HostRoot挂载的内容，方便Mutation阶段渲染。
 	*    commitMutationEffects
 		 React会将之前收集的所有DOM变更应用到实际的DOM树中。这些变更可能包括属性的更改、节点的插入或移除、事件处理程序的更新等。执行LayoutEffect的销毁函数
 	-   切换current树 root.current = finishedWork;
 	-   commitLayoutEffects
-		 React会执行所有需要更新布局的副作用操作。这些操作包括获取节点尺寸、位置、滚动位置等。执行LayoutEffect的创建函数
+		 React会执行所有需要更新布局的副作用操作。这些操作包括获取节点尺寸、位置、滚动位置等。执行LayoutEffect的创建函数，和class组件的componentDidMount/UPdate方法。
 *  收尾
 	*  根据rootDoesHavePassiveEffect判断赋值相关变量
 	*  执行ensureRootIsScheduled确保被调度(有两种原因会开启新的调度，commt阶段出发了新的调度，比如在useLayoutEffect回调中触发更新，有遗留的更新未处理)
 	*  执行flushSyncCallbackQueue处理componentDidMount等生命周期或者useLayoutEffect等同步任务
+
+
+> 为什么不用EffectList，反而要去遍历Fiber Tree，原因是为了兼容React18中的Suspence的并发更新feature。如果Suspence的子孙组件有异步加载的内容。应该只渲染fallback，而不是同时渲染非异步加载部分。
 
 
 commitMutationEffects
