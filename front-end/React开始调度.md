@@ -102,6 +102,7 @@ function performConcurrentWorkOnRoot(root, didTimeout) {
 
   // we can remove this, since we track expiration ourselves.
   //如果有过期Lane或者BlockingLane，则执行renderRootSync，同步render，否则的话就异步进行rednerRootConcurrent
+  //shouldTimeSlice 判断  不包含过期的lane && 不包含阻塞lane&&didTimeout参数为false
 
   const shouldTimeSlice =
 

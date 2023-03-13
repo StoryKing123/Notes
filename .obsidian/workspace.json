@@ -4,91 +4,77 @@
     "type": "split",
     "children": [
       {
-        "id": "43c0b7430e85da82",
+        "id": "56858ffd8e72bc3a",
         "type": "tabs",
         "children": [
           {
-            "id": "ed04283a100bd5ad",
+            "id": "fba458e58907fa52",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "draw/JSFrame.excalidraw.md"
+              }
+            }
+          },
+          {
+            "id": "9a9e18a32059f2da",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "algorithm/README.md",
+                "file": "front-end/ReactSchedule.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "33320e7249bb3475",
+            "id": "834077d7345058e4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "front-end/React开始调度.md",
+                "file": "front-end/React优先级.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "f58e68278478cd5b",
+            "id": "3486a320bbeb2663",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "excalidraw",
+              "state": {
+                "file": "draw/pendingLanes相关工作流程.excalidraw.md"
+              }
             }
           },
           {
-            "id": "123d9e0709814b24",
+            "id": "8cd9403a7dc243d5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "front-end/浏览器的一帧.md",
+                "file": "front-end/root.pendingLanes工作流程.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "afb403225c5e7ad7",
+            "id": "3307677de3b3f6aa",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "front-end/git命令.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "6b8da5f1bc274e4f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "english/2023.3 生词汇.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2c9b3c30fa4100a0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
+                "file": "draw/pendingLanes相关工作流程.excalidraw.md"
               }
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -117,7 +103,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "github",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -138,7 +124,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 259.5
   },
   "right": {
     "id": "463eaadcb39809fb",
@@ -154,6 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "front-end/root.pendingLanes工作流程.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,6 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "front-end/root.pendingLanes工作流程.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -191,7 +179,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "front-end/root.pendingLanes工作流程.md"
+              }
             }
           }
         ]
@@ -203,58 +193,62 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false,
       "canvas:新建白板": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "5bd5bdfcf1556012",
+  "active": "8cd9403a7dc243d5",
   "lastOpenFiles": [
+    "draw/pendingLanes相关工作流程.excalidraw.md",
+    "front-end/root.pendingLanes工作流程.md",
+    "front-end/requestUpdateLane.md",
+    "front-end/React优先级.md",
+    "未命名 4.canvas",
+    "未命名 3.canvas",
+    "未命名 2.canvas",
+    "未命名 1.canvas",
+    "front-end/React开始调度.md",
+    "front-end/执行render，调度之前.md",
+    "front-end/ReactCommit.md",
+    "front-end/ReactReconciler.md",
+    "front-end/ReactSchedule.md",
+    "front-end/use react in MDA.md",
+    "react/react整体架构.md",
+    "front-end/React流程.md",
+    "draw/React更新流程.excalidraw.md",
     "front-end/手撕代码/trie.js",
-    "README.md",
-    "front-end/手撕代码/trie.js.md",
-    "front-end/调试react源码.md",
+    "front-end/git命令.md",
+    "front-end/浏览器架构.md",
     "front-end/执行render之前的步骤.md",
     "front-end/浏览器的一帧.md",
-    "front-end/浏览器架构.md",
-    "english/2023.3 生词汇.md",
-    "front-end/React优先级.md",
-    "front-end/ReactSchedule.md",
-    "front-end/ReactReconciler.md",
+    "front-end/浏览器处理事件.md",
+    "front-end/React结构.md",
+    "front-end/调试react源码.md",
+    "front-end/debug JS in MDA.md",
+    "front-end/HTTP.md",
     "draw/并发架构的结构.excalidraw.md",
     "draw/JSFrame.excalidraw.md",
     "draw",
-    "migrate-file.md",
-    "front-end/React流程.md",
-    "front-end/浏览器处理事件.md",
-    "front-end/执行render，调度之前.md",
-    "front-end/HTTP.md",
-    "front-end/git命令.md",
-    "front-end/React开始调度.md",
     "algorithm/README.md",
     "front-end/手撕代码/compose pipe.md",
     "front-end/手撕代码",
-    "[lanes.png.md",
-    "front-end/cache.md",
-    "front-end/use react in MDA.md",
-    "front-end/React结构.md",
-    "pics/lanes_to_event_schedule.png",
-    "pics/lanes.png",
-    "pics/lanes_to_event_priority.png",
     "未命名.canvas",
-    "pics/Pasted image 20230228224513.png",
+    "pics/lanes_to_event_schedule.png",
+    "pics/lanes_to_event_priority.png",
+    "pics/lanes.png",
     "pics/Pasted image 20230306175705.png",
     "pics/Pasted image 20230306175608.png",
     "pics/Pasted image 20230306175307.png",
-    "english/vocabulary",
-    "english",
     "pics/Pasted image 20230302162539.png",
     "pics/Pasted image 20230302162525.png",
     "pics/Pasted image 20230302160845.png",
+    "pics/Pasted image 20230228224513.png",
+    "english",
     "front-end",
     "pics",
     "react",
