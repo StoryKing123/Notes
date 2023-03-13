@@ -1,7 +1,21 @@
-![[JS Frame.excalidraw|600]]
+![[JSFrame.excalidraw|600]]
+
+
+![[并发架构的结构.excalidraw|550]]
+
+react在Fiber架构中，实现了一套基于lane模型的优先级算法，并基于这算法实现了批量更新、任务中断、恢复等低级特性。
+
+
+
 
 
 # 该选用什么宏任务
+根据ReactSchedule的需求，能够符合react调度要求的，需要有下面的条件
+* 在一帧内能够执行多次
+* 执行时间越早越好
+* 兼容性要足够好
+* 要有稳定性
+
 ##  requestIdleCallback
 requestIdleCallbak会在每帧的空闲时期执行，但是会有如下缺点
 * 浏览器兼容性较差

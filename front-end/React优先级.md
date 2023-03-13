@@ -3,13 +3,18 @@ React中有自己两套优先级
 
 一套是Lane，一套是事件优先级
 
-# Lane.
+# Lane
 
 ![](https://github.com/StoryKing123/Notes/raw/0dcfed923b1af57ed9132b6f4a19284dd3894883/pics/lanes.png)
 
+Lane模型是
+
+
 # 事件优先级
 -   DiscreteEventPriority 离散事件优先级
+	-click,input,focus,blur,touchstart等事件
 -   ContinuousEventPriority 连续事件优先级
+	-drag,mouse move,scroll,touchmove,wheel
 -   DefaultEventPriority 默认事件优先级
 -   IdleEventPriority 空闲时间优先级
 
