@@ -4,77 +4,115 @@
     "type": "split",
     "children": [
       {
-        "id": "56858ffd8e72bc3a",
+        "id": "43c0b7430e85da82",
         "type": "tabs",
         "children": [
           {
-            "id": "fba458e58907fa52",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "draw/JSFrame.excalidraw.md"
-              }
-            }
-          },
-          {
-            "id": "9a9e18a32059f2da",
+            "id": "ed04283a100bd5ad",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "front-end/ReactSchedule.md",
+                "file": "algorithm/README.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "834077d7345058e4",
+            "id": "33320e7249bb3475",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "front-end/React优先级.md",
+                "file": "front-end/React开始调度.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "3486a320bbeb2663",
+            "id": "f58e68278478cd5b",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "draw/pendingLanes相关工作流程.excalidraw.md"
-              }
+              "type": "graph",
+              "state": {}
             }
           },
           {
-            "id": "8cd9403a7dc243d5",
+            "id": "123d9e0709814b24",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "front-end/root.pendingLanes工作流程.md",
+                "file": "front-end/浏览器的一帧.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "3307677de3b3f6aa",
+            "id": "afb403225c5e7ad7",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "draw/pendingLanes相关工作流程.excalidraw.md"
+                "file": "front-end/git命令.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6b8da5f1bc274e4f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "english/2023.3 生词汇.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2c9b3c30fa4100a0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "english/2023.3 生词汇.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e1f6d284cf50793d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "front-end/浏览器架构.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4b30be4c6772522c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "front-end/Tcp协议.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 8
       }
     ],
     "direction": "vertical"
@@ -103,7 +141,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "github",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -124,7 +162,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 259.5
+    "width": 300
   },
   "right": {
     "id": "463eaadcb39809fb",
@@ -140,7 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "front-end/root.pendingLanes工作流程.md",
+                "file": "front-end/Tcp协议.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +195,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "front-end/root.pendingLanes工作流程.md",
+                "file": "front-end/Tcp协议.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -180,7 +218,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "front-end/root.pendingLanes工作流程.md"
+                "file": "front-end/Tcp协议.md"
               }
             }
           }
@@ -193,62 +231,63 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false,
       "canvas:新建白板": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
-      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
+      "command-palette:打开命令面板": false
     }
   },
-  "active": "8cd9403a7dc243d5",
+  "active": "4b30be4c6772522c",
   "lastOpenFiles": [
-    "draw/pendingLanes相关工作流程.excalidraw.md",
-    "front-end/root.pendingLanes工作流程.md",
-    "front-end/requestUpdateLane.md",
-    "front-end/React优先级.md",
+    "Pasted image 20230314184522.png",
+    "front-end/TLS1.2.md",
+    "Pasted image 20230314184235.png",
+    "front-end/浏览器架构.md",
+    "front-end/浏览器处理事件.md",
+    "front-end/执行render之前的步骤.md",
+    "front-end/执行render，调度之前.md",
+    "front-end/use react in MDA.md",
+    "front-end/Tcp协议.md",
+    "front-end/ReactCommit.md",
+    "front-end/ReactReconciler.md",
+    "front-end/浏览器的一帧.md",
+    "front-end/调试react源码.md",
+    "未命名.canvas",
     "未命名 4.canvas",
     "未命名 3.canvas",
     "未命名 2.canvas",
-    "未命名 1.canvas",
-    "front-end/React开始调度.md",
-    "front-end/执行render，调度之前.md",
-    "front-end/ReactCommit.md",
-    "front-end/ReactReconciler.md",
+    "front-end/React优先级.md",
     "front-end/ReactSchedule.md",
-    "front-end/use react in MDA.md",
-    "react/react整体架构.md",
-    "front-end/React流程.md",
-    "draw/React更新流程.excalidraw.md",
-    "front-end/手撕代码/trie.js",
     "front-end/git命令.md",
-    "front-end/浏览器架构.md",
-    "front-end/执行render之前的步骤.md",
-    "front-end/浏览器的一帧.md",
-    "front-end/浏览器处理事件.md",
-    "front-end/React结构.md",
-    "front-end/调试react源码.md",
-    "front-end/debug JS in MDA.md",
     "front-end/HTTP.md",
+    "Pasted image 20230314164937.png",
+    "draw/TCPIP.excalidraw.md",
+    "english/2023.3 生词汇.md",
+    "front-end/root.pendingLanes工作流程.md",
+    "front-end/React开始调度.md",
+    "未命名 1.canvas",
+    "front-end/requestUpdateLane.md",
+    "draw/pendingLanes相关工作流程.excalidraw.md",
+    "draw/React更新流程.excalidraw.md",
+    "front-end/手撕代码/trie.js.md",
+    "front-end/手撕代码/trie.js",
+    "README.md",
     "draw/并发架构的结构.excalidraw.md",
-    "draw/JSFrame.excalidraw.md",
     "draw",
-    "algorithm/README.md",
-    "front-end/手撕代码/compose pipe.md",
     "front-end/手撕代码",
-    "未命名.canvas",
     "pics/lanes_to_event_schedule.png",
-    "pics/lanes_to_event_priority.png",
     "pics/lanes.png",
+    "pics/lanes_to_event_priority.png",
+    "pics/Pasted image 20230228224513.png",
     "pics/Pasted image 20230306175705.png",
     "pics/Pasted image 20230306175608.png",
     "pics/Pasted image 20230306175307.png",
-    "pics/Pasted image 20230302162539.png",
-    "pics/Pasted image 20230302162525.png",
-    "pics/Pasted image 20230302160845.png",
-    "pics/Pasted image 20230228224513.png",
+    "english/vocabulary",
     "english",
+    "pics/Pasted image 20230302162539.png",
     "front-end",
     "pics",
     "react",
