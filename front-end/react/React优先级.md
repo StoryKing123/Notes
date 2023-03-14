@@ -7,10 +7,18 @@ React中有自己两套优先级
 
 ![](https://github.com/StoryKing123/Notes/raw/0dcfed923b1af57ed9132b6f4a19284dd3894883/pics/lanes.png)
 
-Lane模型是
+	在旧的React中，react使用了基于expiratinoTime的优先级算法，expirationTime可以很好的应对CPU密集型场景，因为在该场景下只需考虑任务中断与继续、高优先级任务打断低优先级任务。
+	Lane模型是react用于替代expirtationTime模型的新模型，新模型将I/O密集型场景也纳入优化范畴（通过suspense）。expirationTime字段耦合了“优先级”与“批”这两个概念，限制了模型的表达能力。
+
+fiberNode上面lane属性
+* pendingLanes 当前FiberRootNode下待执行的update对应lane的集合
+* suspendedlanes，当前FIberRootNode由于Suspense而挂起的update对应lane的集合
+* pingedLanes 当前FIberRootNode下由于请求成功，Suspense取消挂起的update对应的lane的集合
+* expiredLanes 当前FiberRootNode下由于过期，需要同步，不可中断执行render阶段的update对应lane的集合
 
 
 
+requestUpdateLane逻辑
 1. 如果当前应用未开启并发模式，则返回SyncLane
 2. 是否是render阶段产生的更新
 3. 是否与transition相关
