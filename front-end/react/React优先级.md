@@ -5,7 +5,7 @@ React中有自己两套优先级
 
 # Lane
 
-![](https://github.com/StoryKing123/Notes/raw/0dcfed923b1af57ed9132b6f4a19284dd3894883/pics/lanes.png)
+![](https://raw.githubusercontent.com/StoryKing123/pics/main/lanes.png)
 
 	在旧的React中，react使用了基于expiratinoTime的优先级算法，expirationTime可以很好的应对CPU密集型场景，因为在该场景下只需考虑任务中断与继续、高优先级任务打断低优先级任务。
 	Lane模型是react用于替代expirtationTime模型的新模型，新模型将I/O密集型场景也纳入优化范畴（通过suspense）。expirationTime字段耦合了“优先级”与“批”这两个概念，限制了模型的表达能力。

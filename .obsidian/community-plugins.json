@@ -1,5 +1,6 @@
 [
   "obsidian-excalidraw-plugin",
   "obsidian-git",
-  "mousewheel-image-zoom"
+  "mousewheel-image-zoom",
+  "obsidian-image-auto-upload-plugin"
 ]
