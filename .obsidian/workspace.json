@@ -4,127 +4,81 @@
     "type": "split",
     "children": [
       {
-        "id": "43c0b7430e85da82",
+        "id": "56858ffd8e72bc3a",
         "type": "tabs",
         "children": [
           {
-            "id": "ed04283a100bd5ad",
+            "id": "5260c1aaca8fdde2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "algorithm/README.md",
+                "file": "front-end/react/状态更新流程/状态更新.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "f58e68278478cd5b",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
-            }
-          },
-          {
-            "id": "123d9e0709814b24",
+            "id": "afc61e242334285c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "front-end/浏览器的一帧.md",
+                "file": "front-end/react/状态更新流程/状态更新.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "afb403225c5e7ad7",
+            "id": "52b6e0c18f34fd80",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "front-end/git命令.md",
+                "file": "front-end/react/状态更新流程/createRoot流程.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "2c9b3c30fa4100a0",
+            "id": "8422f3fd2b8f0189",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "english/2023.3 生词汇.md",
+                "file": "front-end/react/状态更新流程/useState流程.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "5e896841e99be60a",
+            "id": "fae1b9520ccec739",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "front-end/react/使用Suspense代替state和effect获取数据.md",
+                "file": "front-end/react/状态更新流程/性能优化.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "1f7909fe1c353c6f",
+            "id": "3307677de3b3f6aa",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "885c5023567a5813",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "english/2023.3 生词汇.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e1f6d284cf50793d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "front-end/浏览器架构.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "4b30be4c6772522c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "front-end/浏览器的一帧.md",
-                "mode": "source",
-                "source": false
+                "file": "draw/pendingLanes相关工作流程.excalidraw.md"
               }
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -153,7 +107,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "English",
+                "query": "enqueueUpdate",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -174,7 +128,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 259.5
   },
   "right": {
     "id": "463eaadcb39809fb",
@@ -190,7 +144,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "english/2023.3 生词汇.md",
+                "file": "front-end/react/状态更新流程/性能优化.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -207,7 +161,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "english/2023.3 生词汇.md",
+                "file": "front-end/react/状态更新流程/性能优化.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -230,7 +184,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "english/2023.3 生词汇.md"
+                "file": "front-end/react/状态更新流程/性能优化.md"
               }
             }
           }
@@ -243,67 +197,67 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false,
       "canvas:新建白板": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "885c5023567a5813",
+  "active": "fae1b9520ccec739",
   "lastOpenFiles": [
-    "algorithm/README.md",
-    "general/VIM.md",
-    "Excalidraw/Drawing 2023-03-20 17.27.20.excalidraw.md",
-    "Excalidraw",
-    "Pasted image 20230314184235.png",
-    "english/2023.3 生词汇.md",
-    "README.md",
-    "general",
-    "front-end/TCP协议.md",
-    "front-end/react/状态更新流程/状态更新.md",
     "front-end/react/状态更新流程/useState流程.md",
+    "front-end/react/状态更新流程/性能优化.md",
+    "front-end/react/状态更新流程/状态更新.md",
+    "general/VIM.md",
+    "general",
     "front-end/react/状态更新流程/createRoot流程.md",
-    "draw/ReactDom.createRoot流程.excalidraw.md",
-    "front-end/手动延迟带来更好的UX.md",
+    "english/2023.3 生词汇.md",
+    "front-end/浏览器处理事件.md",
+    "front-end/react/React结构.md",
+    "front-end/react/调试react源码.md",
     "front-end/react/使用Suspense代替state和effect获取数据.md",
+    "front-end/react/执行render，调度之前.md",
+    "front-end/react/执行render之前的步骤.md",
+    "draw/ReactDom.createRoot流程.excalidraw.md",
+    "draw/ReactDom.createRoot流程.md",
+    "draw/JSFrame.excalidraw.md",
+    "front-end/react/ReactSchedule.md",
+    "draw/update插入u0.excalidraw.md",
+    "front-end/手动延迟带来更好的UX.md",
+    "tcp建立连接.png",
+    "[Command Line]",
     "draw/update插入u3.excalidraw.md",
     "draw/update插入u2.excalidraw.md",
     "draw/update插入u1.excalidraw.md",
-    "draw/update插入u0.excalidraw.md",
-    "front-end/react/执行render之前的步骤.md",
-    "front-end/react/调试react源码.md",
-    "draw/update插入.excalidraw.md",
-    "[Command Line]",
+    "draw/update插入.md",
+    "front-end/react/ReactCommit.md",
     "draw/update的产生与消费.excalidraw.md",
-    "front-end/git命令.md",
-    "front-end/浏览器的一帧.md",
-    "draw/TCPIP.excalidraw.md",
-    "draw/并发架构的结构.excalidraw.md",
-    "front-end/react/root.pendingLanes工作流程.md",
-    "front-end/react/React优先级.md",
-    "Pasted image 20230315145530.png",
-    "tcp建立连接.png",
-    "Pasted image 20230315145440.png",
-    "Pasted image 20230315145437.png",
+    "front-end/react/requestUpdateLane.md",
+    "front-end/react/ReactReconciler.md",
     "front-end/react/状态更新流程",
     "front-end/react",
     "Pasted image 20230314184522.png",
-    "未命名.canvas",
+    "Pasted image 20230314184235.png",
+    "Pasted image 20230314164937.png",
     "未命名 4.canvas",
     "未命名 3.canvas",
     "未命名 2.canvas",
-    "Pasted image 20230314164937.png",
     "未命名 1.canvas",
     "front-end/手撕代码/trie.js",
     "draw",
     "front-end/手撕代码",
+    "未命名.canvas",
     "pics/lanes_to_event_schedule.png",
-    "pics/lanes.png",
     "pics/lanes_to_event_priority.png",
-    "english/vocabulary",
-    "english"
+    "pics/lanes.png",
+    "pics/Pasted image 20230306175705.png",
+    "pics/Pasted image 20230306175608.png",
+    "pics/Pasted image 20230306175307.png",
+    "english",
+    "front-end",
+    "pics"
   ]
 }

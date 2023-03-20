@@ -77,3 +77,5 @@ function dispatchSetState<S, A>(
 }
 ```
 
+从isRenderphaseUpdate(fiber)所在的条件语句来看，render阶段触发的更新与其他情况触发的更新的主要区别在于其不会执行scheduleUpdateOnFiber方法开启新的调度。
+接下来进入schedule阶段，调度完成后进入render阶段，在FC的beginWork中计算state。
