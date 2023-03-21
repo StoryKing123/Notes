@@ -68,6 +68,18 @@
             }
           },
           {
+            "id": "58d4d3e2e2b902da",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "front-end/react/状态更新流程/性能优化.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "3307677de3b3f6aa",
             "type": "leaf",
             "state": {
@@ -78,7 +90,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -206,14 +218,19 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "fae1b9520ccec739",
+  "active": "58d4d3e2e2b902da",
   "lastOpenFiles": [
+    "front-end/react/状态更新流程/状态更新.md",
+    "front-end/react/状态更新流程/createRoot流程.md",
     "front-end/react/状态更新流程/useState流程.md",
     "front-end/react/状态更新流程/性能优化.md",
-    "front-end/react/状态更新流程/状态更新.md",
+    "README.md",
+    "tcp建立连接.png",
+    "vim notes.md",
+    "draw/bailout策略.excalidraw.md",
+    "draw/未命名.md",
     "general/VIM.md",
     "general",
-    "front-end/react/状态更新流程/createRoot流程.md",
     "english/2023.3 生词汇.md",
     "front-end/浏览器处理事件.md",
     "front-end/react/React结构.md",
@@ -227,16 +244,11 @@
     "front-end/react/ReactSchedule.md",
     "draw/update插入u0.excalidraw.md",
     "front-end/手动延迟带来更好的UX.md",
-    "tcp建立连接.png",
     "[Command Line]",
     "draw/update插入u3.excalidraw.md",
     "draw/update插入u2.excalidraw.md",
     "draw/update插入u1.excalidraw.md",
     "draw/update插入.md",
-    "front-end/react/ReactCommit.md",
-    "draw/update的产生与消费.excalidraw.md",
-    "front-end/react/requestUpdateLane.md",
-    "front-end/react/ReactReconciler.md",
     "front-end/react/状态更新流程",
     "front-end/react",
     "Pasted image 20230314184522.png",
