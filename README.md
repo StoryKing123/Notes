@@ -4,6 +4,8 @@
 
 [为什么打点要用gif]([https://toutiao.io/posts/xpy6p8/preview](https://toutiao.io/posts/xpy6p8/preview))
 
+[ascoders/weekly: 前端精读周刊。帮你理解最前沿、实用的技术。 (github.com)](https://github.com/ascoders/weekly)
+
 
 ## 博客
 
@@ -18,6 +20,7 @@
 [https://github.com/LiangJunrong/document-library](https://github.com/LiangJunrong/document-library)
 
 [[[首页-蚊子-前端博客 (xiabingbao.com)](https://www.xiabingbao.com/)]]
+
 
 ## 位运算
 
