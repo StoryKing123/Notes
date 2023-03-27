@@ -69,7 +69,68 @@
     "type": "excalidrawlib",
     "version": 2,
     "source": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/1.8.19",
-    "libraryItems": []
+    "libraryItems": [
+      {
+        "id": "zv0rVuyv4cVMNHRskVlYI",
+        "status": "unpublished",
+        "elements": [
+          {
+            "type": "arrow",
+            "version": 174,
+            "versionNonce": 1974131600,
+            "isDeleted": false,
+            "id": "_6GLBRdKSE54bDyR5XxiF",
+            "fillStyle": "hachure",
+            "strokeWidth": 1,
+            "strokeStyle": "solid",
+            "roughness": 1,
+            "opacity": 100,
+            "angle": 0,
+            "x": -189.78566767194434,
+            "y": -226.37456908624767,
+            "strokeColor": "#000000",
+            "backgroundColor": "transparent",
+            "width": 392.3496173166894,
+            "height": 805.1926512528568,
+            "seed": 1948681616,
+            "groupIds": [],
+            "roundness": null,
+            "boundElements": [],
+            "updated": 1679922491708,
+            "link": null,
+            "locked": false,
+            "startBinding": {
+              "elementId": "JIrVRoRyrT6wiw0Oz2YjB",
+              "focus": -0.07524441566356901,
+              "gap": 25.584665319354627
+            },
+            "endBinding": {
+              "elementId": "QoQlh3AWohMgbcyakKHRO",
+              "focus": -0.9718608075376928,
+              "gap": 7.802978515624943
+            },
+            "lastCommittedPoint": null,
+            "startArrowhead": null,
+            "endArrowhead": "arrow",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                -362.7440033556825,
+                -2.563611341413722
+              ],
+              [
+                29.60561396100688,
+                802.629039911443
+              ]
+            ]
+          }
+        ],
+        "created": 1679922494608
+      }
+    ]
   },
   "imageElementNotice": true,
   "mdSVGwidth": 500,
