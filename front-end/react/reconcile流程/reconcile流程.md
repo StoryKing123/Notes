@@ -412,3 +412,120 @@ function List (){
 2. 第二轮遍历处理剩下的节点
 对于最常见的情况（即“节点位置没有变化”），对应图中的情况4。此时仅需经历第一轮遍历，相较其他情况省略了第二轮遍历。
 
+![[多节点Diff.excalidraw|675]]
+
+参与比较的双方，oldFiber代表vurrent fiberNode，其数据结构是链表；newChildren代表JSX对象，其数据结构是数组。由于oldFiber是链表，所以无法借助“双指针”从数组首尾同时遍历以提高效率。
+
+## 算法实现
+第一轮遍历代码如下：
+```javascript
+	//参与比较的current fiberNode
+    let oldFiber = currentFirstChild;
+	//最后一个可复用oldFiber的位置索引
+    let lastPlacedIndex = 0;
+   
+    //JSX对象的索引
+    let newIdx = 0;
+    
+     //下一个oldFiber
+    let nextOldFiber = null;
+    for (; oldFiber !== null && newIdx < newChildren.length; newIdx++) {
+      //具体实现
+    }
+```
+
+第一轮遍历步骤如下：
+1. 遍历newChildren，将newChildren[newIdx]与oldFiber比较，判断是否可复用
+2. 如果可复用，i++，继续步骤1。如果不可复用，分两种情况:
+	a key不同导致不可复用，立即跳出遍历，第一轮遍历结束
+	b key相同type不同导致不可复用，会将oldFiber标记为DELETION，继续步骤1
+3. 如果newChildren遍历完（即newIdx === newChildren.length）或者oldFiber遍历完(oldFiber === null)，则跳出遍历，第一轮遍历结束
+
+对于图中的情况2，newChildren遍历完，oldFiber未遍历完，意味着有旧节点被删除，所以需要遍历其余oldFiber，依次标记Deletion。
+
+对于情况3，oldFiber遍历完，newChildren未遍历完，意味着有新节点被插入，需要遍历其余newChildren依次生成fiberNode。
+
+对于情况1，由于有节点改变了位置，因此不能再顺序遍历并比较。如何快速将同一个节点在更新前后对应上，并判断它的位置是否移动呢？这里涉及三个问题：
+1. 如何将同一个节点在更新前后对应上
+2. 如何快速找到这个节点
+3. 如何判断它的位置是否移动
+首先，key用于将同一个节点在更新前后对应上。其次，为了快速找到key对应的oldFiber，可以将所有还未处理的oldFiber存入以key为key，oldFiber为value的Map中。这一过程发生在mapRemainChildren方法中。
+```typescript
+
+  function mapRemainingChildren(
+    returnFiber: Fiber,
+    currentFirstChild: Fiber,
+  ): Map<string | number, Fiber> {
+    // Add the remaining children to a temporary map so that we can find them by
+    // keys quickly. Implicit (null) keys get added to this set with their index
+    // instead.
+    //用于存储oldFiber的Map
+    const existingChildren: Map<string | number, Fiber> = new Map();
+
+    let existingChild: null | Fiber = currentFirstChild;
+    while (existingChild !== null) {
+      if (existingChild.key !== null) {
+		//key存在，使用key作为key
+        existingChildren.set(existingChild.key, existingChild);
+      } else {
+	    //key不存在，使用index作为key
+        existingChildren.set(existingChild.index, existingChild);
+      }
+      existingChild = existingChild.sibling;
+    }
+    return existingChildren;
+  }
+
+```
+
+接下来遍历其余的newChildren时，即可以O(1)复杂度获取相同的key对应的oldFiber:
+```javascript
+  //获取相同的key对应的oldFiber
+  const matchedFiber =
+    existingChildren.get(
+      newChild.key === null ? newIdx : newChild.key,
+    ) || null;
+```
+
+当获取到相同key对应的oldFiber后，如何判断它的位置是否移动?
+判断的参照物是lastPlacedIndex变量（最后一个可复用oldFiber的位置索引）。由于newChildren中JSX对象的顺序代表“本次更新后对应fiberNode的顺序”，因此在遍历newChildren生成wip fiberNode的过程中，每个新生成的wip fiberNode一定是“当前所有同级wip fiberNode中最靠右的一个”。如果改wip fiberNode存在相同的key对应的oldFiber，则有以下两种情况
+1. oldFiber.index < lastPlacedIndex
+	表明oldFiber在lastPlacedIndex对应fiberNode左边。已知wip fiberNode不会在lastPlacedIndex对应fiberNode左边（因为它是当前所有同级wip fiberNode中最靠右的一个），这表明该fiberNode发生了移动，需要标记Placement。
+2. oldFiber.index >= lastPlacedIndex
+表明oldFiber 不在 lastPlacedIndex 对应 fiberNode 左边。与wip fiberNode位置一致，所以不需要移动
+
+判断“位置是否移动”的逻辑发生在placeChild方法中：
+```typescript
+
+  function placeChild(
+    newFiber: Fiber,
+    lastPlacedIndex: number,
+    newIndex: number,
+  ): number {
+    newFiber.index = newIndex;
+    if (!shouldTrackSideEffects) {
+      // During hydration, the useId algorithm needs to know which fibers are
+      // part of a list of children (arrays, iterators).
+      newFiber.flags |= Forked;
+      return lastPlacedIndex;
+    }
+    const current = newFiber.alternate;
+    if (current !== null) {
+      const oldIndex = current.index;
+      if (oldIndex < lastPlacedIndex) {
+        // This is a move.
+        newFiber.flags |= Placement | PlacementDEV;
+        return lastPlacedIndex;
+      } else {
+        // This item can stay in place.
+        return oldIndex;
+      }
+    } else {
+      // This is an insertion.
+      newFiber.flags |= Placement | PlacementDEV;
+      return lastPlacedIndex;
+    }
+  }
+```
+
+
