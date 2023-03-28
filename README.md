@@ -6,6 +6,9 @@
 
 [ascoders/weekly: 前端精读周刊。帮你理解最前沿、实用的技术。 (github.com)](https://github.com/ascoders/weekly)
 
+[从 微信 JS-SDK 认识 JSBridge - 掘金 (juejin.cn)](https://juejin.cn/post/7199297355748458551)
+
+
 
 ## 博客
 

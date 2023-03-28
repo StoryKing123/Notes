@@ -8,29 +8,88 @@
         "type": "tabs",
         "children": [
           {
-            "id": "1343b72c09f90618",
+            "id": "5260c1aaca8fdde2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "front-end/react/reconcile流程/reconcile流程.md",
+                "file": "english/2023.3 生词汇.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "67473414207dd178",
+            "id": "afc61e242334285c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "front-end/react/状态更新流程/状态更新.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "52b6e0c18f34fd80",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "front-end/react/状态更新流程/createRoot流程.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8422f3fd2b8f0189",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "front-end/react/状态更新流程/useState流程.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "fae1b9520ccec739",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "front-end/react/状态更新流程/性能优化.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "58d4d3e2e2b902da",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "front-end/react/状态更新流程/性能优化.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3307677de3b3f6aa",
             "type": "leaf",
             "state": {
               "type": "excalidraw",
               "state": {
-                "file": "draw/多节点Diff.excalidraw.md"
+                "file": "draw/pendingLanes相关工作流程.excalidraw.md"
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -96,7 +155,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "draw/多节点Diff.excalidraw.md",
+                "file": "english/2023.3 生词汇.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +172,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "draw/多节点Diff.excalidraw.md",
+                "file": "english/2023.3 生词汇.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,7 +195,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "draw/多节点Diff.excalidraw.md"
+                "file": "english/2023.3 生词汇.md"
               }
             }
           }
@@ -158,22 +217,22 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "67473414207dd178",
+  "active": "5260c1aaca8fdde2",
   "lastOpenFiles": [
-    "front-end/react/reconcile流程/reconcile流程.md",
     "draw/多节点Diff.excalidraw.md",
     "draw/reconcileSingleElement执行流程.excalidraw.md",
-    "front-end/react/状态更新流程/性能优化.md",
+    "front-end/react/reconcile流程/reconcile流程.md",
     "front-end/react/reconcile流程",
+    "README.md",
+    "general/VIM.md",
     "front-end/react/状态更新流程/状态更新.md",
     "front-end/react/状态更新流程/createRoot流程.md",
     "front-end/react/状态更新流程/useState流程.md",
-    "README.md",
+    "front-end/react/状态更新流程/性能优化.md",
     "tcp建立连接.png",
     "vim notes.md",
     "draw/bailout策略.excalidraw.md",
     "draw/未命名.md",
-    "general/VIM.md",
     "general",
     "english/2023.3 生词汇.md",
     "front-end/浏览器处理事件.md",
