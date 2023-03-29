@@ -511,21 +511,116 @@ function List (){
     }
     const current = newFiber.alternate;
     if (current !== null) {
+		//存在复用
       const oldIndex = current.index;
       if (oldIndex < lastPlacedIndex) {
+		//节点移动
         // This is a move.
         newFiber.flags |= Placement | PlacementDEV;
         return lastPlacedIndex;
       } else {
+	    //节点在原位置未移动
         // This item can stay in place.
         return oldIndex;
       }
     } else {
       // This is an insertion.
+      //新节点插入
       newFiber.flags |= Placement | PlacementDEV;
       return lastPlacedIndex;
     }
   }
 ```
 
+每次执行placeChild方法后都会用返回值更新lastPlacedIndex:
+```javascript
+lastPlacedIndex = placeChild(newFiber, lastPlacedIndex, newIdx);
+```
 
+lastPlacedIndex对应逻辑比较复杂，这里通过两个示例来说明多节点Diff的流程。
+
+```html
+
+//更新前
+<ul>
+    <li key="a">a</li>
+    <li key="b">b</li>
+    <li key="c">c</li>
+    <li key="d">d</li>
+</ul>
+
+
+
+//更新后 
+<ul>
+    <li key="a">a</li>
+    <li key="c">c</li>
+    <li key="d">d</li>
+    <li key="b">b</li>
+</ul>
+```
+
+第一轮遍历开始:
+1. a（后）与a（前）比较，可以复用，oldFiber.index === 0，所以lastPlacedIndex = 0
+2. c（后）与b（前）比较，不能复用，跳出第一轮遍历，此时plastPlacedIndex === 0
+此时newChildren包含cbd，oldFiber包含bcd，属于情况1.将oldFiber保存在map中，数据结构如下：
+```javascript
+{
+	"b" => FiberNode,
+	"c" => FiberNode,
+	"d" => FiberNode
+}
+```
+
+第二轮开始，继续遍历剩余newchildren
+1. c在map中找到，可以复用，oldFiber.index === 2 （更新前顺序为abcd，所以c对应index为2）。由于oldFiber.index > lastPlacedIndex （2 > 0），则c位置不变，同时lastPlacedIndex = 2。
+2. d在map中找到，可以复用，oldFiber.index === 3。由于 oldFiber.index < lastPlacedIndex (1 < 3)，标记b移动。第二轮遍历结束。
+最终b标记Placement。由于b对应wip fiberNode没有sibling。在commitPlacement方法中不存在before，所以执行parentNode.appendChild 方法，对应DOM元素被移动至同级最后。
+
+示例2
+```html
+//更新前
+<ul>
+    <li key="a">a</li>
+    <li key="b">b</li>
+    <li key="c">c</li>
+    <li key="d">d</li>
+</ul>
+
+
+
+//更新后 
+<ul>
+    <li key="d">d</li>
+    <li key="a">a</li>
+    <li key="b">b</li>
+    <li key="c">c</li>
+</ul>
+```
+第一轮遍历开始：
+d（后）与a（前）比较，不能复用，跳出第一轮遍历，此时lastPalcedIndex === 0。
+此时newChildren包含dabc，oldFiber包含abcd，属于情况下。将oldFiber保存在map中，数据结构如下
+```javascript
+{
+	"a" => FiberNode,
+	"b" => FiberNode,
+	"c" => FiberNode,
+	"d" => FiberNode
+}
+```
+
+第二轮遍历开始，继续遍历其余newChildren：
+1. d在map中找到，可以复用，oldFiber.index === 3。由于 oldFiber.index > lastPlacedIndex （3 > 0），则d位置不变，同时lastPalcedIndex  = 3.
+2. a在map中找到，可以复用，oldFiber.index === 0。由于 oldFiber.index < lastPlacedIndex (0 < 3)，标记a移动
+3. b在map中找到，可以复用，oldFiber.index === 1。由于 oldFiber.index < lastPlacedIndex (1 < 3)，标记b移动
+4. c在map中找到，可以复用，oldFiber.index === 2。由于oldFiber.index < lastPlcedIndex (2<3)，标记c移动，第二轮遍历结束
+最终abc三个节点标记Placement，依次执行 parentNode.appendChild 方法。可以看到，abcd 变为 dabc，虽然只需要将d移动到最前面，但实际上React保持d不变，将abc分享移动到了d的后面。出于性能的考虑，开发时要尽量避免将节点从后面移动到前面的操作
+
+
+# 实现Diff算法
+不管是单节点还是多节点Diff，都有判断是否复用的操作。可以认为：单节点Diff是同级只有一个节点的多节点Diff。而多节点Diff之所以会经历两轮遍历，是出于性能考虑，优先处理“常见情况”。所以我们可以基于多节点Diff中第二轮遍历情况1使用的算法实现Diff。
+
+虚拟DOM节点的数据结构定义如下：
+```typescript
+type Flag = 'Placement' | 'Deletion'
+```
