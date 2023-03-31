@@ -419,6 +419,8 @@ function List (){
 ## 算法实现
 第一轮遍历代码如下：
 ```javascript
+	//reconcileChildrenArray方法
+	
 	//参与比较的current fiberNode
     let oldFiber = currentFirstChild;
 	//最后一个可复用oldFiber的位置索引
@@ -622,5 +624,78 @@ d（后）与a（前）比较，不能复用，跳出第一轮遍历，此时las
 
 虚拟DOM节点的数据结构定义如下：
 ```typescript
-type Flag = 'Placement' | 'Deletion'
+type Flag = "Placement" | "Deletion";
+
+interface MyNode {
+  key: string;
+  flag?: Flag;
+  index?: number;
+}
+
+type MyNodeList = MyNode[];
+
+function diff(before: MyNodeList, after: MyNodeList): MyNodeList {
+  const result: MyNodeList = [];
+
+  //遍历到最后一个可复用node在before中的index
+  let lastPlacedIndex = 0;
+
+  //将before保存在map中
+  const beforeMap = new Map<string, MyNode>();
+  before.forEach((node, i) => {
+    node.index = i;
+    beforeMap.set(node.key, node);
+  });
+
+  for (let i = 0; i < after.length; i++) {
+    const afterNode = after[i];
+    afterNode.index = i;
+    const beforeNode = beforeMap.get(afterNode.key);
+
+    if (beforeNode) {
+      //存在可复用node
+      //从map中剔除该可复用node
+      beforeMap.delete(beforeNode.key);
+
+      const oldIndex = beforeNode.index as number;
+
+      //核心判断逻辑
+      if (oldIndex < lastPlacedIndex) {
+        //移动
+        afterNode.flag = "Placement";
+        result.push(afterNode);
+        continue;
+      } else {
+        //不移动
+        lastPlacedIndex = oldIndex;
+      }
+    } else {
+      //不存在可复用node，这是一个新节点
+      result.push(afterNode);
+    }
+  }
+
+  //事后工作
+  beforeMap.forEach((node) => {
+    node.flag = "Deletion";
+    result.push(node);
+  });
+
+  return result;
+}
+
+const before: MyNodeList = [{ key: "aa" }];
+
+const after: MyNodeList = [{ key: "d" }];
+
+diff(before, after);
+/**
+ * output
+ * [
+ *  {key:"d",flag:"Placement"}
+ *  {key:"a",flag:"Deletion"}
+ * ]
+ *
+ */
+
 ```
