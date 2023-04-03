@@ -412,3 +412,290 @@ function List (){
 2. 第二轮遍历处理剩下的节点
 对于最常见的情况（即“节点位置没有变化”），对应图中的情况4。此时仅需经历第一轮遍历，相较其他情况省略了第二轮遍历。
 
+![[多节点Diff.excalidraw|675]]
+
+参与比较的双方，oldFiber代表vurrent fiberNode，其数据结构是链表；newChildren代表JSX对象，其数据结构是数组。由于oldFiber是链表，所以无法借助“双指针”从数组首尾同时遍历以提高效率。
+
+## 算法实现
+第一轮遍历代码如下：
+```javascript
+	//reconcileChildrenArray方法
+	
+	//参与比较的current fiberNode
+    let oldFiber = currentFirstChild;
+	//最后一个可复用oldFiber的位置索引
+    let lastPlacedIndex = 0;
+   
+    //JSX对象的索引
+    let newIdx = 0;
+    
+     //下一个oldFiber
+    let nextOldFiber = null;
+    for (; oldFiber !== null && newIdx < newChildren.length; newIdx++) {
+      //具体实现
+    }
+```
+
+第一轮遍历步骤如下：
+1. 遍历newChildren，将newChildren[newIdx]与oldFiber比较，判断是否可复用
+2. 如果可复用，i++，继续步骤1。如果不可复用，分两种情况:
+	a key不同导致不可复用，立即跳出遍历，第一轮遍历结束
+	b key相同type不同导致不可复用，会将oldFiber标记为DELETION，继续步骤1
+3. 如果newChildren遍历完（即newIdx === newChildren.length）或者oldFiber遍历完(oldFiber === null)，则跳出遍历，第一轮遍历结束
+
+对于图中的情况2，newChildren遍历完，oldFiber未遍历完，意味着有旧节点被删除，所以需要遍历其余oldFiber，依次标记Deletion。
+
+对于情况3，oldFiber遍历完，newChildren未遍历完，意味着有新节点被插入，需要遍历其余newChildren依次生成fiberNode。
+
+对于情况1，由于有节点改变了位置，因此不能再顺序遍历并比较。如何快速将同一个节点在更新前后对应上，并判断它的位置是否移动呢？这里涉及三个问题：
+1. 如何将同一个节点在更新前后对应上
+2. 如何快速找到这个节点
+3. 如何判断它的位置是否移动
+首先，key用于将同一个节点在更新前后对应上。其次，为了快速找到key对应的oldFiber，可以将所有还未处理的oldFiber存入以key为key，oldFiber为value的Map中。这一过程发生在mapRemainChildren方法中。
+```typescript
+
+  function mapRemainingChildren(
+    returnFiber: Fiber,
+    currentFirstChild: Fiber,
+  ): Map<string | number, Fiber> {
+    // Add the remaining children to a temporary map so that we can find them by
+    // keys quickly. Implicit (null) keys get added to this set with their index
+    // instead.
+    //用于存储oldFiber的Map
+    const existingChildren: Map<string | number, Fiber> = new Map();
+
+    let existingChild: null | Fiber = currentFirstChild;
+    while (existingChild !== null) {
+      if (existingChild.key !== null) {
+		//key存在，使用key作为key
+        existingChildren.set(existingChild.key, existingChild);
+      } else {
+	    //key不存在，使用index作为key
+        existingChildren.set(existingChild.index, existingChild);
+      }
+      existingChild = existingChild.sibling;
+    }
+    return existingChildren;
+  }
+
+```
+
+接下来遍历其余的newChildren时，即可以O(1)复杂度获取相同的key对应的oldFiber:
+```javascript
+  //获取相同的key对应的oldFiber
+  const matchedFiber =
+    existingChildren.get(
+      newChild.key === null ? newIdx : newChild.key,
+    ) || null;
+```
+
+当获取到相同key对应的oldFiber后，如何判断它的位置是否移动?
+判断的参照物是lastPlacedIndex变量（最后一个可复用oldFiber的位置索引）。由于newChildren中JSX对象的顺序代表“本次更新后对应fiberNode的顺序”，因此在遍历newChildren生成wip fiberNode的过程中，每个新生成的wip fiberNode一定是“当前所有同级wip fiberNode中最靠右的一个”。如果改wip fiberNode存在相同的key对应的oldFiber，则有以下两种情况
+1. oldFiber.index < lastPlacedIndex
+	表明oldFiber在lastPlacedIndex对应fiberNode左边。已知wip fiberNode不会在lastPlacedIndex对应fiberNode左边（因为它是当前所有同级wip fiberNode中最靠右的一个），这表明该fiberNode发生了移动，需要标记Placement。
+2. oldFiber.index >= lastPlacedIndex
+表明oldFiber 不在 lastPlacedIndex 对应 fiberNode 左边。与wip fiberNode位置一致，所以不需要移动
+
+判断“位置是否移动”的逻辑发生在placeChild方法中：
+```typescript
+
+  function placeChild(
+    newFiber: Fiber,
+    lastPlacedIndex: number,
+    newIndex: number,
+  ): number {
+    newFiber.index = newIndex;
+    if (!shouldTrackSideEffects) {
+      // During hydration, the useId algorithm needs to know which fibers are
+      // part of a list of children (arrays, iterators).
+      newFiber.flags |= Forked;
+      return lastPlacedIndex;
+    }
+    const current = newFiber.alternate;
+    if (current !== null) {
+		//存在复用
+      const oldIndex = current.index;
+      if (oldIndex < lastPlacedIndex) {
+		//节点移动
+        // This is a move.
+        newFiber.flags |= Placement | PlacementDEV;
+        return lastPlacedIndex;
+      } else {
+	    //节点在原位置未移动
+        // This item can stay in place.
+        return oldIndex;
+      }
+    } else {
+      // This is an insertion.
+      //新节点插入
+      newFiber.flags |= Placement | PlacementDEV;
+      return lastPlacedIndex;
+    }
+  }
+```
+
+每次执行placeChild方法后都会用返回值更新lastPlacedIndex:
+```javascript
+lastPlacedIndex = placeChild(newFiber, lastPlacedIndex, newIdx);
+```
+
+lastPlacedIndex对应逻辑比较复杂，这里通过两个示例来说明多节点Diff的流程。
+
+```html
+
+//更新前
+<ul>
+    <li key="a">a</li>
+    <li key="b">b</li>
+    <li key="c">c</li>
+    <li key="d">d</li>
+</ul>
+
+
+
+//更新后 
+<ul>
+    <li key="a">a</li>
+    <li key="c">c</li>
+    <li key="d">d</li>
+    <li key="b">b</li>
+</ul>
+```
+
+第一轮遍历开始:
+1. a（后）与a（前）比较，可以复用，oldFiber.index === 0，所以lastPlacedIndex = 0
+2. c（后）与b（前）比较，不能复用，跳出第一轮遍历，此时plastPlacedIndex === 0
+此时newChildren包含cbd，oldFiber包含bcd，属于情况1.将oldFiber保存在map中，数据结构如下：
+```javascript
+{
+	"b" => FiberNode,
+	"c" => FiberNode,
+	"d" => FiberNode
+}
+```
+
+第二轮开始，继续遍历剩余newchildren
+1. c在map中找到，可以复用，oldFiber.index === 2 （更新前顺序为abcd，所以c对应index为2）。由于oldFiber.index > lastPlacedIndex （2 > 0），则c位置不变，同时lastPlacedIndex = 2。
+2. d在map中找到，可以复用，oldFiber.index === 3。由于 oldFiber.index < lastPlacedIndex (1 < 3)，标记b移动。第二轮遍历结束。
+最终b标记Placement。由于b对应wip fiberNode没有sibling。在commitPlacement方法中不存在before，所以执行parentNode.appendChild 方法，对应DOM元素被移动至同级最后。
+
+示例2
+```html
+//更新前
+<ul>
+    <li key="a">a</li>
+    <li key="b">b</li>
+    <li key="c">c</li>
+    <li key="d">d</li>
+</ul>
+
+
+
+//更新后 
+<ul>
+    <li key="d">d</li>
+    <li key="a">a</li>
+    <li key="b">b</li>
+    <li key="c">c</li>
+</ul>
+```
+第一轮遍历开始：
+d（后）与a（前）比较，不能复用，跳出第一轮遍历，此时lastPalcedIndex === 0。
+此时newChildren包含dabc，oldFiber包含abcd，属于情况下。将oldFiber保存在map中，数据结构如下
+```javascript
+{
+	"a" => FiberNode,
+	"b" => FiberNode,
+	"c" => FiberNode,
+	"d" => FiberNode
+}
+```
+
+第二轮遍历开始，继续遍历其余newChildren：
+1. d在map中找到，可以复用，oldFiber.index === 3。由于 oldFiber.index > lastPlacedIndex （3 > 0），则d位置不变，同时lastPalcedIndex  = 3.
+2. a在map中找到，可以复用，oldFiber.index === 0。由于 oldFiber.index < lastPlacedIndex (0 < 3)，标记a移动
+3. b在map中找到，可以复用，oldFiber.index === 1。由于 oldFiber.index < lastPlacedIndex (1 < 3)，标记b移动
+4. c在map中找到，可以复用，oldFiber.index === 2。由于oldFiber.index < lastPlcedIndex (2<3)，标记c移动，第二轮遍历结束
+最终abc三个节点标记Placement，依次执行 parentNode.appendChild 方法。可以看到，abcd 变为 dabc，虽然只需要将d移动到最前面，但实际上React保持d不变，将abc分享移动到了d的后面。出于性能的考虑，开发时要尽量避免将节点从后面移动到前面的操作
+
+
+# 实现Diff算法
+不管是单节点还是多节点Diff，都有判断是否复用的操作。可以认为：单节点Diff是同级只有一个节点的多节点Diff。而多节点Diff之所以会经历两轮遍历，是出于性能考虑，优先处理“常见情况”。所以我们可以基于多节点Diff中第二轮遍历情况1使用的算法实现Diff。
+
+虚拟DOM节点的数据结构定义如下：
+```typescript
+type Flag = "Placement" | "Deletion";
+
+interface MyNode {
+  key: string;
+  flag?: Flag;
+  index?: number;
+}
+
+type MyNodeList = MyNode[];
+
+function diff(before: MyNodeList, after: MyNodeList): MyNodeList {
+  const result: MyNodeList = [];
+
+  //遍历到最后一个可复用node在before中的index
+  let lastPlacedIndex = 0;
+
+  //将before保存在map中
+  const beforeMap = new Map<string, MyNode>();
+  before.forEach((node, i) => {
+    node.index = i;
+    beforeMap.set(node.key, node);
+  });
+
+  for (let i = 0; i < after.length; i++) {
+    const afterNode = after[i];
+    afterNode.index = i;
+    const beforeNode = beforeMap.get(afterNode.key);
+
+    if (beforeNode) {
+      //存在可复用node
+      //从map中剔除该可复用node
+      beforeMap.delete(beforeNode.key);
+
+      const oldIndex = beforeNode.index as number;
+
+      //核心判断逻辑
+      if (oldIndex < lastPlacedIndex) {
+        //移动
+        afterNode.flag = "Placement";
+        result.push(afterNode);
+        continue;
+      } else {
+        //不移动
+        lastPlacedIndex = oldIndex;
+      }
+    } else {
+      //不存在可复用node，这是一个新节点
+      result.push(afterNode);
+    }
+  }
+
+  //事后工作
+  beforeMap.forEach((node) => {
+    node.flag = "Deletion";
+    result.push(node);
+  });
+
+  return result;
+}
+
+const before: MyNodeList = [{ key: "aa" }];
+
+const after: MyNodeList = [{ key: "d" }];
+
+diff(before, after);
+/**
+ * output
+ * [
+ *  {key:"d",flag:"Placement"}
+ *  {key:"a",flag:"Deletion"}
+ * ]
+ *
+ */
+
+```
