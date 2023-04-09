@@ -156,6 +156,7 @@ updateWorkInProgressHook方法用于在update时获取对应hook数据，目的�
 useReducer与useState的区别主要体现在queue.lastRenderReducer属性上，其代表"上一次render时使用的reducer"。其中：
 1. useReducer的lastRenderReducer为传入的reducer参数
 2. useState的lastRenderReducer为basicStateReducer
+所以，useState可以视为reducer参数为basicStateReducer的useReducer
 ```typescript
 function basicStateReducer<S>(state: S, action: BasicStateAction<S>): S {
   // $FlowFixMe[incompatible-use]: Flow doesn't like mixed types
@@ -204,3 +205,160 @@ function updateReducer<S, I, A>(
 
 ```
 
+
+
+# effect相关Hook
+React中用于定义由副作用的因变量的Hook总共有三个：
+1. useEffect
+回调函数在commit阶段完成后异步执行，所以不会阻塞视图渲染
+2. useLayoutEffect
+回调函数会在commit阶段的Layout子阶段同步执行，一般用于执行DOM相关操作
+3. useInsertionEffect
+回调函数会在commit阶段的Mutation子阶同步执行，与useLayoutEffect的区别在于-useInsertionEffect执行时无法访问对DOM的引用。这个Hook是专为Css-in-JS库插入全局Style元素或Defs元素（对于SVG）而设计的。
+## 数据结构
+对于三个effec相关Hook，hook.memoizedState公用一套数据结构：
+```javascript
+const effect = {
+	//用于区分effect类型Passive | Layout | Insertion
+	tag,
+	//effect回调函数
+	create,
+	//effect销毁函数
+	destroy,
+	//依赖项
+	deps,
+	//与当前FC的其他effect形成环状链表
+	next:null
+}
+```
+
+其中tag字段用于区分effect类型，比如：
+1. Passive代表useEffect
+2. Layout代表useLayoutEffect
+3. Insertion代表useInsertionEffect
+create与destroy分别指代effect回调函数与effect销毁函数，考虑如下useEffect：
+```javascript
+useEffect(()=>{
+	//这里是回create
+	return ()=>{
+	//这里是destroy
+	}
+},[])
+```
+next字段用于与当前FC的其他effect形成环状链表，连接方式为单向环状链表。注意区分其于fiberNode.memoizedState的区别
+![[effect结构.excalidraw|675]]
+
+## 声明阶段
+整体工作流程分为三个阶段：
+1. 声明阶段
+2. 调度阶段（useEffect独有）
+3. 执行阶段
+声明阶段即FC render，effect相关Hook执行的阶段，其工作流程如下
+![[effect声明阶段.excalidraw|675]]
+
+```typescript
+function updateEffectImpl(
+  fiberFlags: Flags,
+  hookFlags: HookFlags,
+  create: () => (() => void) | void,
+  deps: Array<mixed> | void | null,
+): void {
+  const hook = updateWorkInProgressHook();
+  const nextDeps = deps === undefined ? null : deps;
+  const effect: Effect = hook.memoizedState;
+  const inst = effect.inst;
+
+  // currentHook is null when rerendering after a render phase state update.
+  if (currentHook !== null) {
+    if (nextDeps !== null) {
+      const prevEffect: Effect = currentHook.memoizedState;
+      const prevDeps = prevEffect.deps;
+      if (areHookInputsEqual(nextDeps, prevDeps)) {
+        hook.memoizedState = pushEffect(hookFlags, create, inst, nextDeps);
+        return;
+      }
+    }
+  }
+
+  currentlyRenderingFiber.flags |= fiberFlags;
+
+  hook.memoizedState = pushEffect(
+    HookHasEffect | hookFlags,
+    create,
+    inst,
+    nextDeps,
+  );
+}
+
+```
+
+mount 与 update 分别对应 mountEffectImpl与 updateEffectImpl 方法。区别在于update时会比较deps是否变化，逻辑如下：
+```javascript
+if (areHookInputsEqual(nextDeps, prevDeps)) {
+  hook.memoizedState = pushEffect(hookFlags, create, inst, nextDeps);
+  return;
+}
+```
+
+areHookInputsEqual方法采用浅比较的方式遍历并判断deps是否发生变化
+```typescript
+
+function areHookInputsEqual(
+  nextDeps: Array<mixed>,
+  prevDeps: Array<mixed> | null,
+): boolean {
+
+  if (prevDeps === null) {
+    return false;
+  }
+
+  // $FlowFixMe[incompatible-use] found when upgrading Flow
+  for (let i = 0; i < prevDeps.length && i < nextDeps.length; i++) {
+    // $FlowFixMe[incompatible-use] found when upgrading Flow
+    // 使用object.is 判断
+    if (is(nextDeps[i], prevDeps[i])) {
+      continue;
+    }
+    return false;
+  }
+  return true;
+}
+```
+无论deps在mount和update流程中是否发生变化,最终都会执行pushEffect方法，该方法的目的是创建effect并形成单向环状链表
+```typescript
+
+function pushEffect(
+  tag: HookFlags,
+  create: () => (() => void) | void,
+  inst: EffectInstance,
+  deps: Array<mixed> | null,
+): Effect {
+  const effect: Effect = {
+    tag,
+    create,
+    inst,
+    deps,
+    // Circular
+    next: (null: any),
+  };
+  let componentUpdateQueue: null | FunctionComponentUpdateQueue =
+    (currentlyRenderingFiber.updateQueue: any);
+    //创建单向环向链表
+  if (componentUpdateQueue === null) { 
+    componentUpdateQueue = createFunctionComponentUpdateQueue();
+    currentlyRenderingFiber.updateQueue = (componentUpdateQueue: any);
+    componentUpdateQueue.lastEffect = effect.next = effect;
+  } else {
+    const lastEffect = componentUpdateQueue.lastEffect;
+    if (lastEffect === null) {
+      componentUpdateQueue.lastEffect = effect.next = effect;
+    } else {
+      const firstEffect = lastEffect.next;
+      lastEffect.next = effect;
+      effect.next = firstEffect;
+      componentUpdateQueue.lastEffect = effect;
+    }
+  }
+  return effect;
+}
+```
