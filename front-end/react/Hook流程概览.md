@@ -362,3 +362,151 @@ function pushEffect(
   return effect;
 }
 ```
+即使update时effect deps没有变化，也会创建对应effect，以此保证effect链表中effect数量、顺序的稳定区分“effect create回调是否应该执行”需要依靠HasEffect tag：
+```javascript
+// update时deps没有变化的情况
+hook.memoizedState = pushEffect(hookFlags, create, destroy, nextDeps);
+
+// update时deps发生变化的情况
+hook.memoizedState = pushEffect(HasEffect | hookFlags, create, destroy,nextDeps);
+```
+deps变化时，会加上一个HasEffect flag，这个flag会在commit阶段遍历effect链表时使用。
+
+## 调度阶段
+由于useEffect的回调函数会在commit阶段完成后异步执行，因此需要经历调度阶段。在commit阶段三个子阶段开始之前，会执行如下代码调度useEffect：
+```typescript
+  //执行阶段：在commitBeforeMutationEffects之前
+  // If there are pending passive effects, schedule a callback to process them.
+  // Do this as early as possible, so it is queued before anything else that
+  // might get scheduled in the commit phase. (See #16714.)
+  // TODO: Delete all other places that schedule the passive effect callback
+  // They're redundant.
+  if (
+    (finishedWork.subtreeFlags & PassiveMask) !== NoFlags ||
+    (finishedWork.flags & PassiveMask) !== NoFlags
+  ) {
+    if (!rootDoesHavePassiveEffects) {
+      rootDoesHavePassiveEffects = true;
+      pendingPassiveEffectsRemainingLanes = remainingLanes;
+      // workInProgressTransitions might be overwritten, so we want
+      // to store it in pendingPassiveTransitions until they get processed
+      // We need to pass this through as an argument to commitRoot
+      // because workInProgressTransitions might have changed between
+      // the previous render and commit if we throttle the commit
+      // with setTimeout
+      pendingPassiveTransitions = transitions;
+      scheduleCallback(NormalSchedulerPriority, () => {
+        //执行effect回调函数的具体方法
+        flushPassiveEffects();
+        // This render triggered passive effects: release the root cache pool
+        // *after* passive effects fire to avoid freeing a cache pool that may
+        // be referenced by a node in the tree (HostRoot, Cache boundary etc)
+        return null;
+      });
+    }
+  }
+  
+```
+
+其中PassiveMask Tag包含 useEffect对应tag （Passive）
+```javascript
+const PassiveMask = Passive | ChildDeletion;
+```
+
+commit阶段在结尾处会根据调度阶段赋值的rootDoesHavePassiveEffects变量赋值rootWithPendingPassiveEffects变量：
+```typescript
+//commitLayoutEffects执行完了，root.current = finishedWork之后
+const rootDidHavePassiveEffects = rootDoesHavePassiveEffects
+if (rootDoesHavePassiveEffects) {
+  // This commit has passive effects. Stash a reference to them. But don't
+  // schedule a callback until after flushing layout work.
+  rootDoesHavePassiveEffects = false;
+  rootWithPendingPassiveEffects = root;
+  pendingPassiveEffectsLanes = lanes;
+} else {
+  // There were no passive effects, so we can immediately release the cache
+  // pool for this render.
+  releaseRootPooledCache(root, remainingLanes);
+}
+```
+当调度结束之后，scheduleCallback方法会执行回调函数内部的flushPassiveEffects方法，进入useEffect的执行阶段：
+
+```typescript
+//简化版
+export function flushPassiveEffects(): boolean {
+  //根据rootWithPendingPassiveEffects变量判断是否需要执行useEffect回调函数
+  if (rootWithPendingPassiveEffects !== null) {
+	  //省略具体流程
+      return flushPassiveEffectsImpl();
+  }
+  return false;
+}
+```
+
+```typescript
+//完整版
+export function flushPassiveEffects(): boolean {
+  // Returns whether passive effects were flushed.
+  // TODO: Combine this check with the one in flushPassiveEFfectsImpl. We should
+  // probably just combine the two functions. I believe they were only separate
+  // in the first place because we used to wrap it with
+  // `Scheduler.runWithPriority`, which accepts a function. But now we track the
+  // priority within React itself, so we can mutate the variable directly.
+  //根据rootWithPendingPassiveEffects变量判断是否需要执行useEffect回调函数
+  if (rootWithPendingPassiveEffects !== null) {
+    // Cache the root since rootWithPendingPassiveEffects is cleared in
+    // flushPassiveEffectsImpl
+    const root = rootWithPendingPassiveEffects;
+    // Cache and clear the remaining lanes flag; it must be reset since this
+    // method can be called from various places, not always from commitRoot
+    // where the remaining lanes are known
+    const remainingLanes = pendingPassiveEffectsRemainingLanes;
+    pendingPassiveEffectsRemainingLanes = NoLanes;
+
+    const renderPriority = lanesToEventPriority(pendingPassiveEffectsLanes);
+    const priority = lowerEventPriority(DefaultEventPriority, renderPriority);
+    const prevTransition = ReactCurrentBatchConfig.transition;
+    const previousPriority = getCurrentUpdatePriority();
+
+    try {
+      ReactCurrentBatchConfig.transition = null;
+      setCurrentUpdatePriority(priority);
+      return flushPassiveEffectsImpl();
+    } finally {
+      setCurrentUpdatePriority(previousPriority);
+      ReactCurrentBatchConfig.transition = prevTransition;
+
+      // Once passive effects have run for the tree - giving components a
+      // chance to retain cache instances they use - release the pooled
+      // cache at the root (if there is one)
+      releaseRootPooledCache(root, remainingLanes);
+    }
+  }
+  return false;
+}
+```
+由于调度阶段的存在，为了保证下一次commit阶段执行前本次commit阶段调度的useEffect均已执行，commit阶段会在入口处执行flushPassiveEffects方法，已保证本次commit阶段执行时，不存在“还在调度中，未执行的useEffect”
+```typescript
+function commitRootImpl(
+  root: FiberRoot,
+  recoverableErrors: null | Array<CapturedValue<mixed>>,
+  transitions: Array<Transition> | null,
+  renderPriorityLevel: EventPriority,
+) {
+  do {
+    // `flushPassiveEffects` will call `flushSyncUpdateQueue` at the end, which
+    // means `flushPassiveEffects` will sometimes result in additional
+    // passive effects. So we need to keep flushing in a loop until there are
+    // no more pending effects.
+    // TODO: Might be better if `flushPassiveEffects` did not automatically
+    // flush synchronous work at the end, to avoid factoring hazards like this.
+    flushPassiveEffects();
+  } while (rootWithPendingPassiveEffects !== null);
+  //省略代码
+ }
+```
+
+flushPassiveEffects方法之所以包裹在do...while循环中，是因为该方法会执行flushSyncCallbacks方法，遍历并执行所有被调度的更新。在更新执行过程中，useEffect的生命阶段可能有会标记HasEffect tag，所以需要循环执行flushPassiveEffects方法知道所有遗留的useEffect回调都执行完毕。
+
+## 执行阶段
+在这三个effect相关Hooks的执行将人，commitHookEffectListUnmount方法（用于遍历effect链表依次执行effect.destroy方法）与commitHookEffectListMount方法（用于遍历effect链表依次执行effect.create方法）会依次执行
