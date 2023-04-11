@@ -509,4 +509,176 @@ function commitRootImpl(
 flushPassiveEffects方法之所以包裹在do...while循环中，是因为该方法会执行flushSyncCallbacks方法，遍历并执行所有被调度的更新。在更新执行过程中，useEffect的生命阶段可能有会标记HasEffect tag，所以需要循环执行flushPassiveEffects方法知道所有遗留的useEffect回调都执行完毕。
 
 ## 执行阶段
-在这三个effect相关Hooks的执行将人，commitHookEffectListUnmount方法（用于遍历effect链表依次执行effect.destroy方法）与commitHookEffectListMount方法（用于遍历effect链表依次执行effect.create方法）会依次执行
+在这三个effect相关Hooks的执行将人，commitHookEffectListUnmount方法（用于遍历effect链表依次执行effect.destroy方法）与commitHookEffectListMount方法（用于遍历effect链表依次执行effect.create方法）会依次执行：
+```typescript
+function commitHookEffectListUnmount(
+  flags: HookFlags,
+  finishedWork: Fiber,
+  nearestMountedAncestor: Fiber | null,
+) {
+  const updateQueue: FunctionComponentUpdateQueue | null =
+    (finishedWork.updateQueue: any);
+  const lastEffect = updateQueue !== null ? updateQueue.lastEffect : null;
+  if (lastEffect !== null) {
+    const firstEffect = lastEffect.next;
+    let effect = firstEffect;
+	// 遍历effect链表
+    do {
+      if ((effect.tag & flags) === flags) {
+        // Unmount
+        const inst = effect.inst;
+        const destroy = inst.destroy;
+        if (destroy !== undefined) {
+          inst.destroy = undefined;
+          safelyCallDestroy(finishedWork, nearestMountedAncestor, destroy);
+        }
+      }
+      effect = effect.next;
+    } while (effect !== firstEffect);
+  }
+}
+
+```
+
+注意执行过程中dvtag的判断，根据判断结果区分“effect的类型”以及“是否需要执行effect回调函数”：
+```javascript
+ if ((effect.tag & flags) === flags) {
+	 //省略代码
+ }
+```
+commitHookEffectListMount方法的执行过程如下，“在生命阶段创建，但是没有标记HasEffect tag的effect回调”不会执行：
+```typescript
+
+function commitHookEffectListMount(flags: HookFlags, finishedWork: Fiber) {
+  const updateQueue: FunctionComponentUpdateQueue | null =
+    (finishedWork.updateQueue: any);
+  const lastEffect = updateQueue !== null ? updateQueue.lastEffect : null;
+  if (lastEffect !== null) {
+    const firstEffect = lastEffect.next;
+    let effect = firstEffect;
+    do {
+      if ((effect.tag & flags) === flags) {
+       
+        // Mount
+        const create = effect.create;
+
+        const inst = effect.inst;
+        const destroy = create();
+        inst.destroy = destroy;
+
+
+      }
+      effect = effect.next;
+    } while (effect !== firstEffect);
+  }
+}
+```
+
+```javascript
+
+//类型为useInsertionEffect且存在HasEffect tag的effect会执行回调
+commitHookEffectListMount(HookInsertion | HookHasEffect,fiber,)
+//类型为useEffect且存在HasEffect tag的effect会执行回调
+commitHookEffectListMount(HookPassive | HookHasEffect, fiber)；
+//类型为useLayoutEffect且存在HasEffect tag的effect会执行回调
+commitHookEffectListMount(HookLayout | HookHasEffect, fiber);
+
+```
+
+由于commitHookEffectListUnmount 方法会由于commitEffectListMount方法执行，因此所有effect.destroy执行后才会执行任意effect.create
+
+# useMemo 与useCallback
+useMemo用于缓存一个值，useCallback用于缓存一个函数，他们的实现比较类似，且比较简单。这里针对mount时与update时分别进行讨论
+
+## mount时执行流程
+从以下代码可以发现，useMemo时useCallback与mount时的唯一区别是：useMemo会执行传入的函数并返回需要缓存的值，而useCallback会将传入的函数直接作为需要缓存的函数：
+```typescript
+function mountMemo<T>(
+  nextCreate: () => T,
+  deps: Array<mixed> | void | null,
+): T {
+  const hook = mountWorkInProgressHook();
+  const nextDeps = deps === undefined ? null : deps;
+  if (shouldDoubleInvokeUserFnsInHooksDEV) {
+    nextCreate();
+  }
+  //执行create，返回需要缓存的值
+  const nextValue = nextCreate();
+  hook.memoizedState = [nextValue, nextDeps];
+  return nextValue;
+}
+
+function mountCallback<T>(callback: T, deps: Array<mixed> | void | null): T {
+  const hook = mountWorkInProgressHook();
+  const nextDeps = deps === undefined ? null : deps;
+  hook.memoizedState = [callback, nextDeps];
+  return callback;
+}
+```
+
+## update时执行流程
+相较于mount时，update时增加了比较deps是否变化的逻辑。如果变化，则重新缓存新值。如果没有变化，则返回缓存的值：
+```typescript
+
+function updateMemo<T>(
+  nextCreate: () => T,
+  deps: Array<mixed> | void | null,
+): T {
+  const hook = updateWorkInProgressHook();
+  const nextDeps = deps === undefined ? null : deps;
+  const prevState = hook.memoizedState;
+  // Assume these are defined. If they're not, areHookInputsEqual will warn.
+  if (nextDeps !== null) {
+    const prevDeps: Array<mixed> | null = prevState[1];
+    if (areHookInputsEqual(nextDeps, prevDeps)) {
+      return prevState[0];
+    }
+  }
+  if (shouldDoubleInvokeUserFnsInHooksDEV) {
+    nextCreate();
+  }
+  const nextValue = nextCreate();
+  hook.memoizedState = [nextValue, nextDeps];
+  return nextValue;
+}
+
+
+function updateCallback<T>(callback: T, deps: Array<mixed> | void | null): T {
+  const hook = updateWorkInProgressHook();
+  const nextDeps = deps === undefined ? null : deps;
+  const prevState = hook.memoizedState;
+  if (nextDeps !== null) {
+    const prevDeps: Array<mixed> | null = prevState[1];
+    if (areHookInputsEqual(nextDeps, prevDeps)) {
+      return prevState[0];
+    }
+  }
+  hook.memoizedState = [callback, nextDeps];
+  return callback;
+}
+
+```
+
+## useMemo作用
+利用useMemo缓存变量的特性，可以实现与命中bailout策略类似的效果。
+```jsx
+function Child(){
+	console.log("child render")
+	return <p>child</p>
+}
+
+
+function App(){
+	const [num,updateNum] = useState(0)
+	const child = useMemo(()=> <Child />,[]);
+	const onClick  //...
+	return (<div onClick={onClick}>
+		{child}
+	</div>)
+
+}
+```
+
+在Children的beginWork中，由于oldProps === newProps（前后props都是useMemo的返回值），且其满足其他bailout所需条件，因此Child组件命中bailout策略，不再打印“children render”。
+
+
