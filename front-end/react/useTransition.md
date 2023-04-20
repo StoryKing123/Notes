@@ -313,3 +313,157 @@ entangle的工作流程如下图所示，整体包含三个步骤：
 ![[entangle工作流程.excalidraw|675]]
 
 首先，发生交互时，其对应方法(这里是dispatchSetState方法)中执行requestUpdateLane方法获取更新的对应的lane优先级信息。当处于transition上下文时，requestUpdateLane方法会返回transition相关lane。具体来说，内部会执行claimNextTransition方法从TransitionLanes中寻找还未被使用的lane并返回。
+```typescript
+export function claimNextTransitionLane(): Lane {
+  // Cycle through the lanes, assigning each new transition to the next lane.
+  // In most cases, this means every transition gets its own lane, until we
+  // run out of lanes and cycle back to the beginning.
+  //全局变量nextTransitionLane保存被使用的最后一个TransitionLane
+  const lane = nextTransitionLane;
+  //向左移一位，寻找下一个TransitionLane
+  nextTransitionLane <<= 1;
+  if ((nextTransitionLane & TransitionLanes) === NoLanes) {
+  //如果超出最大的Transitionlane，则从第一个TransitionLane开始
+    nextTransitionLane = TransitionLane1;
+  }
+  return lane;
+}
+
+```
+
+TransitionLanes共包含十六个可能的lane:
+```ts
+const TransitionLanes: Lanes = /* */ 0b0000000011111111111111110000000;
+```
+然后，entangle会在entangleTransitionUpdate方法内部执行markRootEntangled方法，标记lanes纠缠。究竟哪些lanes会发生纠缠？举例说明，执行如下代码：
+```js
+//为了方便阅读，lanes只展示有效位数
+markRootEntangled(root,0b1011)
+```
+传入的lanes VS每个lanes之间会相互纠缠，即：
+* 0b001会与0b1011 纠缠
+* 0b0010会与0b1011纠缠
+* 0b000会与0b1011纠缠
+如果root.entanglements中索引位置保存的lanes与传入的lanes有相交，则它们将发生纠缠。假设root.entangledLanes与root.entanglements数据如下，其标记lanes纠缠过程如下图所示
+```ts
+root.entangledLanes = 0b110;
+root.entanglements = [0,0b0001,0b0110,0];
+```
+![[标记lanes纠缠过程.excalidraw|675]]
+
+从低位向高位依次遍历entangledLanes（即传入的0b1011）
+1. entangledLanes第0位为1，与"entangledLanes 中其他 lanes"纠缠，纠缠后的结果附加在 root.entanglements中index0保存的lanes中。
+```js
+root.entanglement[0] |= entangledLanes;
+```
+2. entangledLanes第1位为1,与entangleLanes中其他lanes纠缠，纠缠后的结果附加在root.entanglements中index1保存的lanes中。
+```js
+root.entanglement[1] |= entangledLanes;
+```
+3. entanlgedLanes第2位为0，但root.entalgedLanes中对应的位不是0，且entangledLane 与 root.entanglements 中 index2保存的lanes有交集，所以发生纠缠。
+
+```js
+// (0b1011 & 0b0110) !==0
+entangledLanes & root.entanglements[2] !== NoLanes;
+root.entanglements[2] |= entangledlanes;
+```
+
+4. entangledLanes第三位为1,与entangledLanes中其他lanes纠缠，纠缠后的结果附加在root.entanglements 中index3保存的lanes中。
+```js
+root.entanglementsp[3] |= entangledLanes;
+```
+相关操作发生在markRootEntangled方法中，代码如下：
+```ts
+
+export function markRootEntangled(root: FiberRoot, entangledLanes: Lanes) {
+  // In addition to entangling each of the given lanes with each other, we also
+  // have to consider _transitive_ entanglements. For each lane that is already
+  // entangled with *any* of the given lanes, that lane is now transitively
+  // entangled with *all* the given lanes.
+  //
+  // Translated: If C is entangled with A, then entangling A with B also
+  // entangles C with B.
+  //
+  // If this is hard to grasp, it might help to intentionally break this
+  // function and look at the tests that fail in ReactTransition-test.js. Try
+  // commenting out one of the conditions below.
+
+  const rootEntangledLanes = (root.entangledLanes |= entangledLanes);
+  const entanglements = root.entanglements;
+  let lanes = rootEntangledLanes;
+
+  //遍历lanes
+  while (lanes) {
+    //获取lanes中最小一位值为1的lanes对应的索引
+    const index = pickArbitraryLaneIndex(lanes);
+    const lane = 1 << index;
+    //上述两行代码结合while循环的意义时：遍历lanes中每个为1的位
+    if (
+      // Is this one of the newly entangled lanes?
+      // 情况1: lane与entangledLanes 中其他 lanes 纠缠
+      (lane & entangledLanes) |
+      // Is this lane transitively entangled with the newly entangled lanes?
+      // 情况2: 与root.entanglements 中对应 lanes 相交
+      (entanglements[index] & entangledLanes)
+    ) {
+      // 标记 lanes 纠缠
+      entanglements[index] |= entangledLanes;
+    }
+    lanes &= ~lane;
+  }
+}
+
+```
+
+接下来，进入schedule阶段，通过getnextLanes方法计算出本次render阶段的批(lanes)。其中与entangle相关的逻辑包含三个步骤：
+1. 本次更新选定的lanes中是否包含“产生纠缠的lanes”
+2. 如果包含，则遍历本次更新选定lanes中产生纠缠的lanes
+3. 与root.entanglements中对应lanes纠缠
+代码如下：
+```ts
+
+export function getNextLanes(root: FiberRoot, wipLanes: Lanes): Lanes {
+  //省略代码
+  const entangledLanes = root.entangledLanes;
+  if (entangledLanes !== NoLanes) {
+    const entanglements = root.entanglements;
+    let lanes = nextLanes & entangledLanes;
+    // 本次更新选定的lanes（批）中是否包含“产生纠缠的lanes”
+    while (lanes > 0) {
+      // 遍历“产生纠缠的lanes”，依次获取索引
+      const index = pickArbitraryLaneIndex(lanes);
+      const lane = 1 << index;
+      // 将本次更新选定的 lanes 与 索引位置保存的lanes纠缠
+      nextLanes |= entanglements[index];
+
+      lanes &= ~lane;
+    }
+  }
+
+  return nextLanes;
+}
+```
+对于上面示例，随着文字在输入框中被不断输入，两类更新会不断产生：
+1. ctn变化对应更新，优先级为SyncLane。
+2. num变化对应更新，优先级为TransitionLanes中的某一个
+前者优先级高于后者，随着文字在输入框中被不断输入会不断产生，并优先进行调度及后续流程。后者随着文字在输入框中不断输入也会不断产生，并互相发生纠缠，但由于优先级较低一直无法执行。直到被纠缠的某一个lane过期，其优先级提升，再连同其他“与它纠缠的lanes” 一起进行调度及后续流程。
+最后，进入commit阶段，在markRootFinished方法中重置“纠缠的lanes”：
+```ts
+export function markRootFinished(root: FiberRoot, remainingLanes: Lanes) {
+  //省略代码
+  let lanes = noLongerPendingLanes;
+  while (lanes > 0) {
+    const index = pickArbitraryLaneIndex(lanes);
+    const lane = 1 << index;
+    
+	//重置entanglements[index]
+    entanglements[index] = NoLanes;
+    eventTimes[index] = NoTimestamp;
+    expirationTimes[index] = NoTimestamp;
+    
+    //省略代码
+    lanes &= ~lane;
+  }
+}
+
+```
