@@ -8,6 +8,8 @@
 
 [从 微信 JS-SDK 认识 JSBridge - 掘金 (juejin.cn)](https://juejin.cn/post/7199297355748458551)
 
+[V8 中的快属性 | CRIMX BLOG](https://blog.crimx.com/2018/11/25/v8-fast-properties/)
+
 
 
 ## 博客
