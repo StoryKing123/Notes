@@ -11,6 +11,7 @@
 [V8 中的快属性 | CRIMX BLOG](https://blog.crimx.com/2018/11/25/v8-fast-properties/)
 
 
+[typescript题目挑战，type-challenges/type-challenges: Collection of TypeScript type challenges with online judge (github.com)](https://github.com/type-challenges/type-challenges/tree/main)
 
 ## 博客
 
