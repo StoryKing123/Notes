@@ -23,6 +23,24 @@
 
 对于二维数组`dp[i][j]` 如果需要访问`dp[i][j-1],dp[i][j+1],dp[i+1][j],dp[i-1][j]`四个方位，可以分开两次进行访问，一次从上到下，从左往右，另一次从下到上，从右往左。这样就可以根据四个访问得到当前`dp[i][j]`的最优值。
 
+如果遇到优化成滚动数组的情况，需要访问`dp[i-1][j-1]` 的情况，可以参考下面
+```
+  for (let i = 1; i < n; i++) {
+        let prev = 0;
+        for (let j = 0; j < i + 1; j++) {
+            let temp = dp[j];
+            if (j === 0) {
+                dp[j] = dp[j] + triangle[i][j];
+            } else if (j === i) {
+                dp[j] = prev + triangle[i][j];
+            } else {
+                dp[j] = Math.min(prev, dp[j]) + triangle[i][j];
+            }
+            prev = temp;
+        }
+    }
+```
+
 ## DFS
 关键词： 有多少种方式
 

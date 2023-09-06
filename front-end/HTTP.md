@@ -42,7 +42,7 @@
 
 ### 多路复用
 
-总结为 **一个域名只使用一个TCP连接和消除队头阻塞问题**。 HTTP1.1是多个TCP，每个TCP同时发送一个请求。 HTTP2是单个TCP发送多个请求。所以消除了队头阻塞问题。 ![](https://cdn.nlark.com/yuque/0/2022/webp/22244142/1648434913839-10f78ae4-58fe-44d7-8d9a-c29eb074428e.webp#clientId=u850ee3ba-798b-4&from=paste&id=u98367997&originHeight=238&originWidth=639&originalType=url&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u2d5977d3-083b-4e13-b6ce-b019b436c05&title=)
+总结为 **一个域名只使用一个TCP连接和消除队头阻塞问题**。 HTTP1.1是多个TCP，每个TCP同时发送一个请求。 HTTP2是单个TCP发送多个请求。所以消除了HTTP队头阻塞问题。 ![](https://cdn.nlark.com/yuque/0/2022/webp/22244142/1648434913839-10f78ae4-58fe-44d7-8d9a-c29eb074428e.webp#clientId=u850ee3ba-798b-4&from=paste&id=u98367997&originHeight=238&originWidth=639&originalType=url&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u2d5977d3-083b-4e13-b6ce-b019b436c05&title=)
 
 #### 二进制分帧
 
@@ -128,7 +128,7 @@ TLS 1.3 握手流程需要最少 1 个 RTT（Round Trip Time），但可以通�
 
 # 文件
 
-[Untitled-2022-02-15-1827.png](https://www.yuque.com/attachments/yuque/0/2022/png/22244142/1648195802088-82c60640-62a5-49cf-a747-e3d76adbcd77.png?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2022%2Fpng%2F22244142%2F1648195802088-82c60640-62a5-49cf-a747-e3d76adbcd77.png%22%2C%22name%22%3A%22Untitled-2022-02-15-1827.png%22%2C%22size%22%3A2224976%2C%22type%22%3A%22image%2Fpng%22%2C%22ext%22%3A%22png%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22mode%22%3A%22title%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22u408f3134-0ff6-48f9-9421-939da4b82a9%22%2C%22taskType%22%3A%22upload%22%2C%22id%22%3A%22ue9f2b6b6%22%2C%22card%22%3A%22file%22%7D)
+
 
 # 引用
 
