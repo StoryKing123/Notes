@@ -43,6 +43,8 @@
 ### 多路复用
 
 总结为 **一个域名只使用一个TCP连接和消除队头阻塞问题**。 HTTP1.1是多个TCP，每个TCP同时发送一个请求。 HTTP2是单个TCP发送多个请求。所以消除了HTTP队头阻塞问题。 ![](https://cdn.nlark.com/yuque/0/2022/webp/22244142/1648434913839-10f78ae4-58fe-44d7-8d9a-c29eb074428e.webp#clientId=u850ee3ba-798b-4&from=paste&id=u98367997&originHeight=238&originWidth=639&originalType=url&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u2d5977d3-083b-4e13-b6ce-b019b436c05&title=)
+HTTP2不一定比HTTP1快,在弱网络的情况下,HTTP2甚至会比HTTP1更慢,因为多路复用的机制,底层TCP的队头阻塞会更加严重.
+
 
 #### 二进制分帧
 
@@ -60,11 +62,17 @@
 > -   其次是对于整数和字符串进行**哈夫曼编码**，哈夫曼编码的原理就是先将所有出现的字符建立一张索引表，然后让出现次数多的字符对应的索引尽可能短，传输的时候也是传输这样的**索引序列**，可以达到非常高的压缩率。
 >     
 
+#### HPACK算法
+主要是根据`静态表` 、`动态表` 、`哈夫曼编码`这几个机制来进行实现的.
+
 ### 服务器推送
 
 > 在 HTTP/2 当中，服务器已经不再是完全被动地接收请求，响应请求，它也能新建 stream 来给客户端发送消息，当 TCP 连接建立之后，比如浏览器请求一个 HTML 文件，服务器就可以在返回 HTML 的基础上，将 HTML 中引用到的其他资源文件一起返回给客户端，减少客户端的等待。
 
 ![](https://cdn.nlark.com/yuque/0/2022/webp/22244142/1648434696478-cb104f4c-3b28-47f3-97b3-f0cb154f7329.webp#clientId=u850ee3ba-798b-4&from=paste&id=uaf98de8f&originHeight=632&originWidth=1227&originalType=url&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u9b619b09-c8d1-45ee-b0c5-155fe5f8edf&title=)
+
+
+
 
 ## HTTP3
 

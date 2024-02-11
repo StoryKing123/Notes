@@ -129,3 +129,5 @@ beginWork和completeWork都会标记节点是否有副作用
 ![](https://cdn.nlark.com/yuque/0/2022/png/22244142/1665744391707-968f282a-bb93-42ed-a863-2aa2172d6006.png)
 
 结束得到一棵fiber树（finishedWork）和副作用链表
+
+简单来说，就说begin work会去创建fiber，构建fiber树，complete work回去创建DOM，构建DOM树，并且将DOM节点放在fiber节点的stateNode属性上（对于hostcomponent来说）

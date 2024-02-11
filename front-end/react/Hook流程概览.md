@@ -97,7 +97,30 @@ const hook = {
 	queue: null,
 	next: null
 }
+
+对于reducer产生的hook，以下属性
+const hook = {
+	memoizedState: null,//通过遍历完`hook.queue`循环单向链表所计算出来的最新值。这个值会在commit阶段被渲染到屏幕上
+	baseState: null,//我们调用hook时候传入的初始值。它是计算新值的基准。
+	baseQueue: null,
+	queue: null,UpdateQueue 对象
+	next: null
+}
+
+//我们调用dispatch方法，主要是做了两件事：1）生成一个由update对象组成的循环单向链表； 2）触发react的调度流程。而pending就是这个循环单向链表的头指针。
+type UpdateQueue<S, A> = {
+    pending: Update<S, A> | null,
+    dispatch: ((A) => mixed) | null,//返回给开发者的用于触发组件re-render的函数实例引用
+    lastRenderedReducer: ((S, A) => S) | null,//上一次update阶段使用的reducer
+    lastRenderedState: S | null,//使用lastRenderedReducer计算出来并已经渲染到屏幕的state
+};
 ```
+
+
+![image.png](https://raw.githubusercontent.com/StoryKing123/pics/main/20230928003532.png)
+
+![image.png](https://raw.githubusercontent.com/StoryKing123/pics/main/20230929123142.png)
+
 
 这里主要关注memoizedState字段，了解hook.momoizedState与fiberNode.memoizedState属性的区别。
 fiber.memozedSae:"FC"对应的fiberNode保存的Hooks链表中的第一个hook数据。
