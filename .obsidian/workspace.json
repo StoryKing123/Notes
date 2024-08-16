@@ -47,7 +47,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "front-end/HTTP.md",
+                "file": "front-end/vue/keepalive的时候保留组件滚动位置.md",
                 "mode": "source",
                 "source": false
               }
@@ -108,12 +108,11 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 259.5
+    "width": 332.5
   },
   "right": {
     "id": "463eaadcb39809fb",
@@ -129,7 +128,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "front-end/HTTP.md",
+                "file": "front-end/vue/keepalive的时候保留组件滚动位置.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,7 +145,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "front-end/HTTP.md",
+                "file": "front-end/vue/keepalive的时候保留组件滚动位置.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -169,7 +168,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "front-end/HTTP.md"
+                "file": "front-end/vue/keepalive的时候保留组件滚动位置.md"
               }
             }
           },
@@ -203,8 +202,13 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "1c7dd8c3316c39b6",
+  "active": "5bd5bdfcf1556012",
   "lastOpenFiles": [
+    "未命名 3.canvas",
+    "front-end/vue/keepalive的时候保留组件滚动位置.md",
+    "front-end/vue",
+    "未命名 2.canvas",
+    "front-end/HTTP.md",
     "algorithm/README.md",
     "back-end/rust.md",
     "back-end/rust copy.md",
@@ -234,13 +238,9 @@
     "front-end/react/Hook流程概览.md",
     "front-end/react/执行render之前的步骤.md",
     "front-end/react/执行render，调度之前.md",
-    "front-end/react/使用Suspense代替state和effect获取数据.md",
-    "front-end/react/调试react源码.md",
-    "front-end/react/ReactCommit.md",
     "general/docker",
     "tcp建立连接.png",
     "Pasted image 20230314184235.png",
-    "未命名 2.canvas",
     "front-end/css",
     "front-end/react/reconcile流程",
     "general",
@@ -250,8 +250,6 @@
     "Pasted image 20230314184522.png",
     "Pasted image 20230314164937.png",
     "未命名 4.canvas",
-    "未命名 3.canvas",
-    "front-end/手撕代码/trie.js",
     "pics/lanes_to_event_schedule.png",
     "pics/lanes.png",
     "pics/Pasted image 20230306175705.png",
