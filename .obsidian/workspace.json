@@ -4,57 +4,44 @@
     "type": "split",
     "children": [
       {
-        "id": "fc3476d1d42d9c75",
+        "id": "a12353f37fc178d7",
         "type": "tabs",
         "children": [
           {
-            "id": "c643ed82825d6c65",
+            "id": "24e9afa08ffb3c73",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "front-end/react/ReactSchedule.md",
+                "file": "front-end/面试准备.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "2b8fadac6e619076",
+            "id": "921bfa72719dbb69",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "cliboard/通行方式.md",
+                "file": "装机.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "f4fc1a5b72ef1ef0",
+            "id": "a12c1b5705caa3ed",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "release-notes",
               "state": {
-                "file": "cliboard/Drawing 2024-01-03 10.40.54.excalidraw.md"
-              }
-            }
-          },
-          {
-            "id": "1c7dd8c3316c39b6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "front-end/vue/keepalive的时候保留组件滚动位置.md",
-                "mode": "source",
-                "source": false
+                "currentVersion": "1.6.7"
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -83,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "file:http",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -112,7 +99,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 332.5
+    "width": 259.5
   },
   "right": {
     "id": "463eaadcb39809fb",
@@ -128,7 +115,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "front-end/vue/keepalive的时候保留组件滚动位置.md",
+                "file": "front-end/面试准备.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -145,7 +132,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "front-end/vue/keepalive的时候保留组件滚动位置.md",
+                "file": "front-end/面试准备.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -168,7 +155,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "front-end/vue/keepalive的时候保留组件滚动位置.md"
+                "file": "front-end/面试准备.md"
               }
             }
           },
@@ -202,51 +189,53 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "5bd5bdfcf1556012",
+  "active": "24e9afa08ffb3c73",
   "lastOpenFiles": [
-    "未命名 3.canvas",
     "front-end/vue/keepalive的时候保留组件滚动位置.md",
     "front-end/vue",
-    "未命名 2.canvas",
-    "front-end/HTTP.md",
-    "algorithm/README.md",
-    "back-end/rust.md",
-    "back-end/rust copy.md",
+    "front-end/浏览器架构.md",
+    "front-end/跨域.md",
+    "front-end/cache.md",
+    "front-end/Decorators.md",
+    "front-end/双token机制.md",
+    "front-end/面试准备.md",
+    "Pasted image 20230314184235.png",
+    "general/interview.md",
+    "migrate-file.md",
+    "front-end/react/ReactSchedule.md",
     "cliboard/通行方式.md",
     "cliboard/Drawing 2024-01-03 10.40.54.excalidraw.md",
-    "().md",
+    "draw/bailout策略.excalidraw.md",
+    "tcp建立连接.png",
+    "front-end/浏览器的一帧.md",
+    "front-end/debug JS in MDA.md",
+    "front-end/浏览器处理事件.md",
+    "front-end/TLS1.2.md",
+    "front-end/HTTP.md",
+    "front-end/Grid布局.md",
+    "front-end/手动延迟带来更好的UX.md",
+    "装机.md",
+    "vim notes.md",
+    "README.md",
+    "draw/原型.excalidraw.md",
+    "draw/原型对象.canvas",
+    "general/system/冯诺依曼模型.md",
+    "front-end/react/状态更新流程/状态更新.md",
+    "general/system",
+    "front-end/js",
+    "未命名 3.canvas",
+    "未命名 2.canvas",
     "cliboard",
-    "back-end/评论系统数据库设计.md",
-    "general/docker/阿里云容器镜像服务.md",
-    "front-end/use react in MDA.md",
-    "algorithm/二叉树的序列化.md",
-    "front-end/手撕代码/compose pipe.md",
-    "front-end/手撕代码/chain.md",
-    "general/VIM.md",
-    "general/docker/制作自己的docker镜像.md",
     "未命名 1.canvas",
     "未命名.canvas",
     "pics/lanes_to_event_priority.png",
     "pics/Pasted image 20230228224513.png",
-    "front-end/react/reconcile流程/reconcile流程.md",
     "back-end",
-    "front-end/react/ReactReconciler.md",
-    "front-end/react/React优先级.md",
-    "front-end/react/React流程.md",
-    "front-end/react/React结构.md",
-    "front-end/react/React开始调度.md",
-    "front-end/react/Hook流程概览.md",
-    "front-end/react/执行render之前的步骤.md",
-    "front-end/react/执行render，调度之前.md",
     "general/docker",
-    "tcp建立连接.png",
-    "Pasted image 20230314184235.png",
     "front-end/css",
     "front-end/react/reconcile流程",
     "general",
     "[Command Line]",
-    "front-end/react/状态更新流程",
-    "front-end/react",
     "Pasted image 20230314184522.png",
     "Pasted image 20230314164937.png",
     "未命名 4.canvas",
