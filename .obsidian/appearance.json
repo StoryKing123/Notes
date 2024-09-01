@@ -1,5 +1,7 @@
 {
   "accentColor": "",
   "theme": "moonstone",
-  "baseFontSize": 14
+  "baseFontSize": 14,
+  "translucency": false,
+  "cssTheme": "Things"
 }

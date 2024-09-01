@@ -13,19 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "front-end/面试准备.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "921bfa72719dbb69",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "装机.md",
+                "file": "front-end/准备.md",
                 "mode": "source",
                 "source": false
               }
@@ -70,7 +58,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "[\"excalidraw-url-prefix\"]",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -115,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "front-end/面试准备.md",
+                "file": "front-end/准备.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "front-end/面试准备.md",
+                "file": "front-end/准备.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -155,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "front-end/面试准备.md"
+                "file": "front-end/准备.md"
               }
             }
           },
@@ -169,6 +157,14 @@
                 "showSearch": false,
                 "searchQuery": ""
               }
+            }
+          },
+          {
+            "id": "8b02281af70a31b2",
+            "type": "leaf",
+            "state": {
+              "type": "copilot-chat-view",
+              "state": {}
             }
           }
         ],
@@ -186,41 +182,47 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "copilot:Copilot Chat": false
     }
   },
-  "active": "24e9afa08ffb3c73",
+  "active": "b65294ecee9a74f8",
   "lastOpenFiles": [
+    "front-end/准备.md",
+    "smart-chats",
+    "front-end/react/状态更新流程/createRoot流程.md",
+    "未命名 6.canvas",
+    "draw/Vue3生命周期.excalidraw.md",
+    "front-end/react/状态更新流程/useState流程.md",
+    "front-end/react/调试react源码.md",
+    "front-end/react/使用Suspense代替state和effect获取数据.md",
+    "front-end/react/执行render，调度之前.md",
+    "front-end/react/执行render之前的步骤.md",
+    "algorithm/二叉树的序列化.md",
+    "front-end/react/状态更新流程/状态更新.md",
+    "front-end/react/状态更新流程/性能优化.md",
+    "front-end/react/状态更新流程/实现简易版useState.md",
+    "front-end/跨域.md",
+    "front-end/并发加载资源.md",
+    "draw/未命名.canvas",
+    "未命名 5.canvas",
+    "未命名 4.canvas",
+    "front-end/HTTP.md",
+    "front-end/面试准备.md",
+    "front-end/cache.md",
+    "front-end/浏览器架构.md",
     "front-end/vue/keepalive的时候保留组件滚动位置.md",
     "front-end/vue",
-    "front-end/浏览器架构.md",
-    "front-end/跨域.md",
-    "front-end/cache.md",
     "front-end/Decorators.md",
     "front-end/双token机制.md",
-    "front-end/面试准备.md",
     "Pasted image 20230314184235.png",
     "general/interview.md",
     "migrate-file.md",
     "front-end/react/ReactSchedule.md",
     "cliboard/通行方式.md",
-    "cliboard/Drawing 2024-01-03 10.40.54.excalidraw.md",
-    "draw/bailout策略.excalidraw.md",
     "tcp建立连接.png",
-    "front-end/浏览器的一帧.md",
-    "front-end/debug JS in MDA.md",
-    "front-end/浏览器处理事件.md",
-    "front-end/TLS1.2.md",
-    "front-end/HTTP.md",
-    "front-end/Grid布局.md",
-    "front-end/手动延迟带来更好的UX.md",
-    "装机.md",
-    "vim notes.md",
-    "README.md",
-    "draw/原型.excalidraw.md",
     "draw/原型对象.canvas",
-    "general/system/冯诺依曼模型.md",
-    "front-end/react/状态更新流程/状态更新.md",
     "general/system",
     "front-end/js",
     "未命名 3.canvas",
@@ -235,10 +237,8 @@
     "front-end/css",
     "front-end/react/reconcile流程",
     "general",
-    "[Command Line]",
     "Pasted image 20230314184522.png",
     "Pasted image 20230314164937.png",
-    "未命名 4.canvas",
     "pics/lanes_to_event_schedule.png",
     "pics/lanes.png",
     "pics/Pasted image 20230306175705.png",
