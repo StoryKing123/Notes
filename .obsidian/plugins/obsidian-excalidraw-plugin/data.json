@@ -36,6 +36,7 @@
   "matchThemeTrigger": false,
   "defaultMode": "normal",
   "defaultPenMode": "never",
+  "penModeDoubleTapEraser": true,
   "penModeCrosshairVisible": true,
   "renderImageInMarkdownReadingMode": false,
   "renderImageInHoverPreviewForMDNotes": false,
@@ -93,7 +94,7 @@
   "library2": {
     "type": "excalidrawlib",
     "version": 2,
-    "source": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/1.8.19",
+    "source": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.4.0",
     "libraryItems": [
       {
         "id": "zv0rVuyv4cVMNHRskVlYI",
@@ -101,8 +102,9 @@
         "elements": [
           {
             "type": "arrow",
-            "version": 174,
-            "versionNonce": 1974131600,
+            "version": 175,
+            "versionNonce": 143107808,
+            "index": "a0",
             "isDeleted": false,
             "id": "_6GLBRdKSE54bDyR5XxiF",
             "fillStyle": "hachure",
@@ -119,20 +121,23 @@
             "height": 805.1926512528568,
             "seed": 1948681616,
             "groupIds": [],
+            "frameId": null,
             "roundness": null,
             "boundElements": [],
-            "updated": 1679922491708,
+            "updated": 1725335986263,
             "link": null,
             "locked": false,
             "startBinding": {
               "elementId": "JIrVRoRyrT6wiw0Oz2YjB",
               "focus": -0.07524441566356901,
-              "gap": 25.584665319354627
+              "gap": 25.584665319354627,
+              "fixedPoint": null
             },
             "endBinding": {
               "elementId": "QoQlh3AWohMgbcyakKHRO",
               "focus": -0.9718608075376928,
-              "gap": 7.802978515624943
+              "gap": 7.802978515624943,
+              "fixedPoint": null
             },
             "lastCommittedPoint": null,
             "startArrowhead": null,
@@ -166,7 +171,7 @@
   "mdCSS": "",
   "scriptEngineSettings": {},
   "defaultTrayMode": true,
-  "previousRelease": "2.3.0",
+  "previousRelease": "2.4.0",
   "showReleaseNotes": true,
   "showNewVersionNotification": true,
   "latexBoilerplate": "\\color{blue}",
@@ -488,6 +493,7 @@
   "numberOfCustomPens": 0,
   "pdfScale": 4,
   "pdfBorderBox": true,
+  "pdfFrame": false,
   "pdfGapSize": 20,
   "pdfGroupPages": false,
   "pdfLockAfterImport": true,
@@ -511,6 +517,7 @@
     "borderOpacity": 0,
     "filenameVisible": false
   },
+  "markdownNodeOneClickEditing": false,
   "canvasImmersiveEmbed": true,
   "startupScriptPath": "",
   "openAIAPIToken": "",
@@ -811,6 +818,27 @@
   "longPressMobile": 500,
   "isDebugMode": false,
   "rank": "Bronze",
+  "modifierKeyOverrides": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Enter"
+    },
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "k"
+    },
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "G"
+    }
+  ],
+  "showSplashscreen": true,
   "autosaveInterval": 15000,
   "mathjaxSourceURL": "https://cdn.jsdelivr.net/npm/mathjax@3.2.1/es5/tex-svg.js"
 }
