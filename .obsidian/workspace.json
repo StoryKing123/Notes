@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "e57984a3f36f22c0",
+        "id": "a12353f37fc178d7",
         "type": "tabs",
         "children": [
           {
-            "id": "268240ea2ada93db",
+            "id": "24e9afa08ffb3c73",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,21 +20,8 @@
               "icon": "lucide-file",
               "title": "README"
             }
-          },
-          {
-            "id": "ec8ffb1c17d183a4",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "draw/浏览器一帧里做的事情.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "浏览器一帧里做的事情.excalidraw"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -65,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "[\"excalidraw-url-prefix\"]",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -100,67 +87,68 @@
       }
     ],
     "direction": "horizontal",
-    "width": 376.5
+    "width": 259.5
   },
   "right": {
     "id": "463eaadcb39809fb",
     "type": "split",
     "children": [],
     "direction": "horizontal",
-    "width": 296.5,
+    "width": 588.5,
     "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
-      "markdown-importer:打开 Markdown 格式转换器": false,
+      "obsidian-git:Open Git source control": false,
       "canvas:新建白板": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-git:Open Git source control": false,
+      "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false,
       "smart-connections:Open: View Smart Connections": false,
       "smart-connections:Open: Smart Chat Conversation": false
     }
   },
-  "active": "ec8ffb1c17d183a4",
+  "active": "24e9afa08ffb3c73",
   "lastOpenFiles": [
-    "draw/标记lanes纠缠过程.excalidraw.md",
-    "draw/并发架构的结构.excalidraw.md",
-    "draw/冯诺依曼模型.excalidraw.md",
-    "draw/多节点Diff.excalidraw.md",
-    "draw/原型.excalidraw.md",
-    "README.md",
     "draw/浏览器一帧里做的事情.excalidraw.md",
-    "migrate-file.md",
-    "front-end/浏览器的一帧.md",
-    "front-end/浏览器架构.md",
     "front-end/准备.md",
-    "front-end/react/调试react源码.md",
-    "front-end/URL响应过慢的原因.md",
-    "Excalidraw/Drawing 2024-12-30 15.16.42.excalidraw.md",
-    "Excalidraw",
-    "front-end/js/proxy里面的receiver.md",
-    "ai/prompt.md",
+    "装机.md",
+    "test.md",
+    "draw/Drawing 2024-09-05 21.38.36.excalidraw.md",
+    "algorithm/未命名.md",
+    "algorithm/未命名 1.md",
+    "[.md",
     "infinity-clipboard/draw/Drawing 2024-09-03 11.58.24.excalidraw.md",
-    "ai",
-    "infinity-clipboard/draw/未命名.canvas",
     "infinity-clipboard/draw",
     "infinity-clipboard",
-    "front-end/vue/keepalive的时候保留组件滚动位置.md",
+    "front-end/URL响应过慢的原因.md",
+    "ai/prompt.md",
+    "ai",
+    "Excalidraw/Drawing 2024-12-30 15.16.42.excalidraw.md",
+    "Excalidraw",
+    "algorithm/二叉树的序列化.md",
+    "back-end/评论系统数据库设计.md",
+    "back-end/rust.md",
+    "back-end/rust copy.md",
+    "smart-chats",
+    "front-end/react/状态更新流程/createRoot流程.md",
     "未命名 6.canvas",
+    "draw/Vue3生命周期.excalidraw.md",
+    "front-end/react/状态更新流程/useState流程.md",
+    "front-end/react/调试react源码.md",
+    "front-end/react/使用Suspense代替state和effect获取数据.md",
+    "front-end/react/执行render，调度之前.md",
+    "front-end/react/执行render之前的步骤.md",
+    "front-end/react/状态更新流程/状态更新.md",
+    "front-end/react/状态更新流程/性能优化.md",
+    "front-end/react/状态更新流程/实现简易版useState.md",
+    "draw/未命名.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",
-    "front-end/面试准备.md",
-    "draw/Vue3生命周期.excalidraw.md",
-    "front-end/并发加载资源.md",
-    "front-end/跨域.md",
-    "front-end/浏览器处理事件.md",
-    "front-end/手动延迟带来更好的UX.md",
-    "front-end/use react in MDA.md",
-    "front-end/Typescript.md",
     "front-end/vue",
     "Pasted image 20230314184235.png",
     "tcp建立连接.png",
@@ -175,7 +163,6 @@
     "pics/lanes_to_event_priority.png",
     "pics/Pasted image 20230228224513.png",
     "back-end",
-    "general/docker",
     "Pasted image 20230314184522.png",
     "Pasted image 20230314164937.png",
     "pics/lanes_to_event_schedule.png",
