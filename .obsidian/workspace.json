@@ -35,8 +35,7 @@
               "title": "Power Automate优化方式"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -119,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "back-end/Power Automate优化方式.md",
+                "file": "general/TL面试.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -129,7 +128,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Power Automate优化方式 的反向链接列表"
+              "title": "TL面试 的反向链接列表"
             }
           },
           {
@@ -138,12 +137,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "back-end/Power Automate优化方式.md",
+                "file": "general/TL面试.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Power Automate优化方式 的出链列表"
+              "title": "TL面试 的出链列表"
             }
           },
           {
@@ -181,13 +180,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "back-end/Power Automate优化方式.md",
+                "file": "general/TL面试.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Power Automate优化方式 的大纲"
+              "title": "TL面试 的大纲"
             }
           }
         ]
@@ -210,10 +209,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b00db7874778e1a2",
+  "active": "24e9afa08ffb3c73",
   "lastOpenFiles": [
-    "general/TL面试.md",
     "back-end/Power Automate优化方式.md",
+    "general/TL面试.md",
     "general/interview.md",
     "general/个人介绍.md",
     "front-end/cache.md",
