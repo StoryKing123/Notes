@@ -46,6 +46,64 @@
 19.用户发现问题，如何排查 （这个应该是11我后面加的那个问题） 
 
 
+1、 自我介绍；
+2、 D365做了几年，做哪种APP？ - 
+3、 创建的数据库字段的类型有哪些？ - Dataverse的字段类型有哪些（这里数据库应该指的Dataverse，虽然称呼Dataverse为数据库不准确）
+4、 计算fill和Rule up fill有用过吗？使用场景介绍一下； - 计算字段（calculate）和汇总字段（rollup）
+5、 需要写代码吗？怎么实现的？ - 我猜这里指的是用Plugin自己写逻辑实现计算字段和汇总字段的同样的功能
+6、 用什么语言写的？- C#
+7、 Powerapp可以创建哪些应用？
+8、 这两个应用场景有什么区别？（驱动应用和vookup应用）- 模型驱动应用（model-driven app）和画布应用（Canvas app）有什么区别
+9、 怎么设计workflow？参数是怎么样的？ - 这里应该记录错了，我猜测问题有两个方向： workflow设计=创建workflow的过程或者创建workflow activity的。 workflow没有参数，workflow activity可以设置参数
+10、用到过codeflow吗？ - 这个不知道是啥
+11、 Security role用过吗？  - 问题11 12 13都是BU+Role+User+Team+Access Team的权限设计相关的知识
+12、securityrole权限用team去划分是吗？这块究竟是team还是business划分呢？
+13、看过business 和team….
+14、最近项目技术用了什么，负责哪块？或者组件？
+15、数据创建后用plugin去…  - Plugin的知识
+16、MDA上有自定过按钮吗？   - Ribbon开发
+17、需求是自己分解还是有专业的人给到你们方案？
+18、有没有做过功能性的设计然后去实现？
+19、功能设计题目：需要开发一款请假软件，一个是请假人，一个是审批人，用MDA实现。简单总结一下用什么组件？ - Power Automate Approval 或者 自己设计实体和逻辑两种方式
+20、工作流是两个entity的，做什么？用来发email吗？
+21、接触过azure function吗？portal了解过吗？
+
+1、 自我介绍（粤语）  
+2、 有做Dynamics吗？5年吗？国内好像很少，你之前在哪家公司做？  
+3、 Canvas
+app你做了什么项目？  
+4、 Plugin你用来做什么？  
+5、 你在Bamboo都一段时间了，有没有做过Mobile的项目？  
+6、 C#有多少年经验？  
+7、 你之前在TCL的项目挺久的，去年12月份做完，现在没有项目做是吧？  
+8、 有没有做过汇丰项目？  
+9、 Power
+Apps你也做过是吗？  
+
+
+1. 自我介绍； 
+2. 全栈开发吗？ 
+3. 最熟悉power app里的什么？ 
+4. 听过cloud flow吗？你能介绍一下什么场景用它，什么时候不用（使用场景）？ 
+5. 它的触发点是什么？触发场景还有什么？ 
+6. 多少种数据源可以连？ 
+7. PCF过去两年有做过吗？ 
+8. 当时做的PCF用什么语言？ 
+9. C#有做过吗？如果只是培训过没有做过Plugin是吧？ 
+10. 一般如果一个cloud flow做完要怎么做测试？ 
+11. 出现异常怎么处理？ 
+12. Canvas app做的比较多是吧？ 
+13. 你知道它里面有很多空件可以拉扯来用是吧？拉扯中不要超过多少控件？ 
+14. 数据怎么来，通过什么方式获取？ 
+15. 有没有试过这种场景不是在dataverse的，那怎么获取？ 
+16. 你call API有没有gateway安全的过滤？ 
+17. 我们的开发环境不能直接访问内外部的API，那你有什么解决方案吗？ 
+18. Azure funtion听过吗？---用C#写的API 
+19. JS做的多吗？常用的libery有哪些？针对power platform提供的有哪些？ 
+20. Fun context 和excutive context 
+21. Reburn听过吗？MDA里的页面上有很多按钮就是reburn.Owen现在有在项目上吗 
+
+
 
 # 需求设计delivery，团队怎样合作，把task分配？ 团队的work model如何高效  
 以下是我对面试问题的回答，作为一名应聘TL（Team Leader）的专家程序员，我会从**需求设计Delivery**、**团队合作**、**任务分配**以及**团队工作模式的高效性**四个方面进行详细阐述，并结合实践经验展示我的能力和思考。
@@ -636,3 +694,172 @@ Power Platform **环境策略**（DLP - Data Loss Prevention Policy）可以全�
 ## **业务驱动学习**：学习技术的核心目标是为业务创造价值，而不是为了掌握工具本身。有时候我们在业务上遇到一些问题，当时我们用现有的技术并没有很好地实现该需求。后面在复盘的时候，我们通过该技术点进行拓展，发现了有更好的技术解决方案。
 ## **构建知识体系**：学习技术可以很好地拓宽一个人的技术视野，我会将学到的知识串联起来，从而构成一个完成的技术体系。
 ## **积极拥抱社区，持续交流和分享**：互相学习，共同进步，才能在这个快速发展的技术领域保持领先。
+
+# 开发对技术的追求，以及需求澄清会花很多时间，怎么样平衡这两者 
+
+技术的探索应该始终以业务价值为导向，而不是为了技术而技术。通过 **需求澄清、合理的技术选型以及受控的技术探索机制**，可以在交付与技术深度之间取得平衡。我的平衡方法有以下几点：
+## 1. 需求澄清优先，确保对齐业务价值
+在项目中，我会确保 **前期需求澄清到足够清晰的程度**，避免开发团队因为技术探索而偏离业务目标。
+我常用的方法包括：
+- **MVP（最小可行产品）思维**：优先构建核心业务能力，避免在非关键功能上投入过多精力。
+- - **快速原型验证**：借助 **Canvas App 低代码PoC**，用最短时间（通常 <1 周）确保与业务方对齐。
+
+## 2.**引导技术追求，使其服务于业务目标
+- **设立技术验证环节 (Proof of Concept - POC)：** 对于有价值的技术探索，我会支持团队进行POC验证，**在小范围内尝试新技术，验证其可行性和价值。** POC的重点是快速验证，控制成本和时间，避免陷入过度设计。 如果POC结果积极，再考虑将其应用到实际项目中。
+- **技术债务管理：** 技术追求有时会带来过度设计或使用过于复杂的技术方案，反而增加维护成本和降低系统稳定性。 我会强调**技术债务管理**，定期评估现有系统的技术债务，并制定计划逐步偿还。 在技术选型时，**优先考虑成熟、稳定、易维护的技术方案**，避免过度追求“最新”或“最炫酷”的技术。
+## 3.**平衡点的动态调整： “灵活应变，持续优化”**
+
+- **项目优先级和资源分配：** 我会根据项目的**优先级、时间限制和预算**，动态调整需求澄清和技术追求的投入比例。 对于时间紧迫的项目，我会优先保证需求澄清的效率，快速交付 MVP (Minimum Viable Product)。 对于创新性较强、时间比较宽裕的项目，可以适当增加技术探索的时间。
+- - **团队技能和兴趣：** 我会考虑团队成员的技能水平和技术兴趣，**将合适的技术探索任务分配给对口的人员。** 这样既能满足团队成员的技术追求，又能提升技术探索的效率和质量。
+
+Technical exploration should always be business value-driven. A balance between delivery and technical depth can be achieved through **requirement clarification, rational technology selection, and controlled technical exploration mechanisms.** My balancing approach includes the following points:
+
+## 1. Prioritize Requirement Clarification to Ensure Alignment with Business Value
+
+In projects, I ensure **initial requirement clarification is clear enough** to prevent the development team from getting off track from business objectives due to technical exploration.
+
+## 2. Guide Technical Pursuits to Serve Business Goals
+
+- For valuable technical exploration, I will support the team in conducting POC verification, **trying new technologies on a small scale to verify their feasibility and value.** The focus of POC is rapid validation, controlling costs and time, and avoiding over-design. If the POC results are positive, then consider applying it to actual projects.
+
+## 3. Dynamic Adjustment of the Balance
+
+-  I will dynamically adjust the investment ratio of requirement clarification and technical pursuit based on the **Project Priorities and Resource Allocation:**.** For time-sensitive projects, I will prioritize the efficiency of requirement clarification to quickly deliver the MVP (Minimum Viable Product). For more innovative and time-flexible projects, the time for technical exploration can be appropriately increased.
+
+
+# 开发文档怎么规范 
+# 相关开发文档可以分为以下几类：
+
+- **架构设计文档**：包含系统架构、Dataverse 数据模型、API 集成方案等
+- **开发规范文档**：如 Canvas/Model-driven Apps 的 UI 组件标准、Power Automate 命名规则
+- **流程自动化文档**：详细描述 Power Automate 流程逻辑、触发条件、异常处理机制
+- **API & 集成文档**：涉及 Power Platform 与 Azure 资源（如 Logic Apps、Functions）的接口定义
+- **测试 & 部署手册**：包括 ALM（应用生命周期管理）流程、DevOps 部署策略、回滚方案
+- **用户手册**：最终用户的操作指南，确保业务团队可以正确使用系统
+
+# 在项目开发末期，客户想要在添加需求，应该怎么办
+好的，明白了。针对 **UAT用户验收测试阶段** 和 **即将上线前的最后冲刺阶段** 这两个不同的“末期”，客户提出新增需求，处理方式会有所侧重。下面我分别阐述我的应对方案：
+
+**1.  UAT用户验收测试阶段**
+
+在UAT阶段，项目的核心功能应该已经开发完毕，重点是验证系统是否满足既定的业务需求，并发现和修复缺陷。 此时新增需求，我们需要谨慎评估，并按照以下步骤处理：
+
+*   **快速评估新需求的性质和影响：**
+    *   **需求类型：**  是缺陷修复（Bug fix）、优化改进（Enhancement）还是全新的功能需求（New Feature）？
+    *   **优先级和必要性：**  这个需求是“Must-have”（上线必须要有）， “Should-have”（应该有），还是 “Could-have”（可以有）？  它解决的是核心业务痛点，还是锦上添花的功能？
+    *   **影响范围：**  这个需求会影响到哪些现有功能模块？会带来多少工作量？ 会延误上线时间吗？ 会增加多少成本？
+    *   **技术可行性：**  在现有架构和时间限制下，技术上是否可以实现？
+
+    **例如：** 假设客户在UAT阶段提出，希望在Power Apps Canvas App的表单中增加一个字段的校验规则，以避免用户输入错误数据。  这可能属于优化改进，影响范围较小，技术上可行性高。 但如果客户提出要增加一个全新的报表，需要从多个Dataverse实体中关联数据并进行复杂计算，这可能就属于全新的功能需求，影响范围大，工作量和风险都较高。
+
+*   **与客户沟通，明确需求细节和期望：**  我们需要和客户深入沟通，了解他们提出这个新需求的 **真正业务背景和目的**。  有时候客户提出的“需求”只是表象，背后可能有更深层次的业务痛点。  我们需要帮助客户澄清需求，并确认他们的期望。
+
+    **沟通要点：**
+    *   **确认需求细节：**  详细了解新需求的具体内容、业务场景、期望效果。
+    *   **了解需求背后的业务价值：**  这个需求如果实现，能为客户带来什么业务价值？ ROI如何？
+    *   **讨论需求的优先级：**  在当前的上线时间和预算约束下，这个需求的优先级有多高？
+    *   **坦诚沟通风险：**  明确告知客户，在UAT阶段添加新需求可能会带来的风险，例如延期上线、增加成本、影响系统稳定性等。
+
+*   **根据评估结果和沟通情况，制定应对方案：**
+
+    *   **如果新需求是紧急且必要的缺陷修复 (Must-have Bug fix):**  应该立即评估修复方案，安排开发资源进行修复和重新测试。  这种情况下，确保系统质量和按时上线是首要目标。
+
+    *   **如果新需求是优先级较高的优化改进 (Should-have Enhancement) 且影响较小：**  可以评估是否能在当前Sprint内完成，并尽可能安排快速迭代。  如果时间紧张，可以考虑简化实现方案，或者与客户协商，将部分优化项延后到上线后的迭代版本。
+
+    *   **如果新需求是全新的功能需求 (New Feature) 或优先级不高 (Could-have Enhancement) 且影响较大：**  **强烈建议将这类需求放到Post-Go-Live阶段处理。**  在UAT阶段，首要目标是确保现有核心功能的稳定上线。  贸然添加新功能，容易引入新的风险，延误上线时间，甚至影响系统质量。  我们需要向客户解释清楚，在有限的时间和资源下，保证项目按计划上线，并确保系统稳定运行是更重要的。  可以承诺在新系统上线后，优先评估和排期这些新需求。
+
+    **项目取舍案例：**  我曾经在一个CRM项目中，UAT阶段客户提出希望增加一个复杂的销售预测报表。  经过评估，这个报表需要关联多个实体，并进行复杂的数据透视分析，开发工作量较大，且并非CRM系统的核心功能。  考虑到上线时间临近，我们与客户充分沟通，解释了在UAT阶段增加复杂报表的风险，并建议将报表需求放到二期迭代开发。  客户最终接受了我们的建议，项目最终按计划成功上线，并在上线后的迭代版本中，我们优先交付了销售预测报表。
+
+
+**2.  即将上线前的最后冲刺阶段**
+
+在项目即将上线前的最后冲刺阶段，系统已经基本稳定，正在进行最后的验证和部署准备。  此时再提出新增需求，情况就更加棘手。  **除非是极其严重的、影响系统无法上线的缺陷 (Go-Live Blocker)，否则原则上不应该接受任何新增需求。**
+
+*   **再次强调风险，坚守变更控制：**  上线前的最后阶段，任何改动都可能引入新的风险，导致系统不稳定甚至上线失败。  我们需要 **坚决执行变更控制流程**，严格评估任何“紧急”需求。
+
+*   **只处理阻碍上线的关键问题：**  如果客户提出的“需求”实际上是 **严重的缺陷，导致核心功能无法使用，或者存在数据安全风险，阻碍系统上线**， 那么我们需要 **优先处理这类问题**。  但处理方式也应该是 **最小化修改**，以快速修复为主，避免引入新的复杂逻辑。
+
+*   **对于任何非阻碍上线的新需求，一律拒绝并延后处理：**  对于任何锦上添花的功能优化，或者非关键的新功能需求，都应该 **明确拒绝**，并告知客户这类需求只能在系统上线后，作为后续迭代版本进行评估和开发。
+
+    **情景模拟：**  假设项目即将上线的前一周，客户突然提出，希望在Power Automate流程中增加一个短信通知功能，以便在关键节点给用户发送短信提醒。  虽然这个需求听起来简单，但上线前的时间非常紧张，任何改动都可能影响系统稳定性。  在这种情况下，我会 **明确拒绝** 这个需求，并向客户解释：  “非常理解您希望增加短信通知功能，但这属于锦上添花的功能优化，并非当前系统上线的必要条件。  在上线前的最后阶段，我们的首要任务是确保系统稳定可靠的上线。  任何改动都可能引入风险，影响上线计划。  因此，我们强烈建议将短信通知功能放到上线后的迭代版本中进行评估和开发。  请您理解和支持。”
+
+
+**总结：**
+
+在项目开发末期，面对客户的新增需求，我的核心原则是 **“以终为始，保障上线”**。  我们需要 **快速评估需求的影响，坦诚与客户沟通，并根据不同阶段的情况，采取不同的应对策略。**  在UAT阶段，可以根据需求的重要性和影响程度，灵活处理；  但在上线前的最后冲刺阶段，则必须 **坚守变更控制，以确保系统稳定上线为首要目标**。  **将非关键的新需求延后到上线后处理，是一种负责任且务实的做法，既能满足客户的长期需求，又能保障项目的成功交付。**  同时，在沟通中，我会始终强调 **技术决策背后的商业思维**，例如 成本、ROI、可扩展性，以及 **实际项目中的取舍案例**，例如 低代码与传统开发的边界，来体现我的专业性和价值。
+
+
+# 内网，外网环境solution integration,网络环境是隔离的，出了问题应该先查哪一块？
+对于内网和外网环境的Solution Integration，尤其是网络环境隔离的情况下，如果出现问题，我会从以下思路逐步排查：
+
+首先，明确问题的表象，比如是数据同步失败、流程触发异常还是报表无法加载，然后基于Power Platform的架构特点和网络隔离的约束，优先检查以下关键点：
+
+1. **连接器与网关配置**
+   因为内网和外网隔离，通常需要通过On-Premises Data Gateway实现数据交互。我会先确认网关是否在线，检查网关日志，看是否有连接超时或凭据失效的情况。实际案例中，我曾遇到某CRM项目中网关因服务器重启未自动恢复，导致Power Automate流程中断，花了20分钟定位问题。
+
+2. **防火墙与网络策略**
+   如果网关正常，下一步检查内网防火墙规则是否限制了Power Platform的出站流量（比如对Azure服务端点的443端口）。同时，外网的Azure服务（如Logic Apps或Dataverse）可能因IP白名单未更新而被阻断。我会与网络团队协作，用ping或tracert测试连通性，确保双向通信无障碍。
+
+3. **服务端点与依赖性**
+   确认网络通路后，检查Power Platform组件的具体依赖，比如Dataverse的API调用是否返回错误，或者Power BI的数据刷新是否因SQL DB连接字符串错误而失败。我会用Fiddler或Azure Monitor抓取请求日志，定位是客户端问题还是服务端异常。
+
+4. **业务流程的触发逻辑**
+   如果以上都没问题，我会回溯业务流程设计，看看是否因隔离环境导致触发条件未满足。例如，某ERP自动化项目中，Power Automate流程在外网触发，但内网数据未及时同步，最终发现是时间差导致的条件判断失败，调整为异步处理后解决。
+
+**排查优先级背后的逻辑**：
+从经验看，80%的问题出在网关或网络配置，因为这是隔离环境下的核心瓶颈。快速定位能减少停机时间，符合ROI最大化的原则。如果网关和网络没问题，再深入到应用层，既节省排查成本，又能保证方案的可扩展性。
+
+
+# 之前有用过敏捷开发吗
+我认为敏捷开发与 Power Platform 的特性天然契合，尤其在以下几个方面：
+
+- **快速迭代与原型验证:** Power Platform 的低代码特性非常适合快速构建原型和 MVP (最小可行产品)。敏捷迭代可以让我们尽早将可用的功能交付给业务用户，收集反馈，并快速调整方向，避免闭门造车。
+- **应对需求变化:** 企业业务需求变化是常态，敏捷的灵活性可以更好地应对这种变化。在每个迭代周期中，我们都可以根据最新的业务优先级调整 Backlog，确保开发方向始终与业务目标保持一致。
+- **提升团队协作与透明度:** 敏捷强调团队的自组织和跨职能协作，通过定期的沟通和回顾，可以及时发现和解决问题，提升团队效率和项目透明度。
+## 之前项目的敏捷流程
+
+每个Sprint（2 weeks）
+- **Sprint Planning Meeting (Day 1):**
+    - This is the kickoff meeting for a new sprint.
+    - The team discusses which features or user stories from the product backlog they will work on during the sprint.
+    - They define the sprint goal, which is a concise description of what the sprint aims to achieve.
+    - They estimate the work effort (e.g., using story points or ideal hours).
+    - They create a sprint backlog, which is a list of tasks needed to complete the sprint goal.
+    - Participants typically include the Product Owner, Scrum Master, and the development team.
+- **Daily Stand-up (Every Day):**
+    - A short, daily meeting (usually no more than 15 minutes) for the development team to synchronize their activities.
+    - It's held at the same time and place every day.
+    - Each team member takes turns answering three questions:
+        - What did I do yesterday?
+        - What will I do today?
+        - Are there any impediments blocking my progress?
+    - The daily stand-up is not for problem-solving but for identifying issues.
+- **Code Review:**
+    - This is the process of reviewing code written by developers to ensure quality, catch bugs, and enforce coding standards.
+    - It can happen at various stages but is crucial before merging code into the main branch.
+    - Code reviewers can provide feedback and suggestions for improving the code.
+    - Modern code review tools can automate parts of the process.
+- **Sprint Review Meeting (Day 5):**
+    - At the end of the sprint, the team demonstrates the completed work to stakeholders (Product Owner, customers, etc.).
+    - The purpose is to gather feedback on the increment and ensure it meets the requirements.
+    - The Product Owner discusses the current state of the product backlog.
+    - The meeting is collaborative, and stakeholders can ask questions and provide input.
+- **System Integration Testing (SIT) (Days 6-7):**
+    - This stage involves testing the integration of different software modules or subsystems.
+    - The goal is to verify that the integrated components work together as expected.
+    - SIT focuses on verifying the data flow and interactions between components.
+    - It's often performed by a dedicated testing team.
+- **User Acceptance Testing (UAT) (Day 8):**
+    - In UAT, the software is tested by the end-users to ensure it meets their needs and is ready for deployment.
+    - This is the final testing phase before the software is released.
+    - Users provide feedback on whether the software meets their expectations and business requirements.
+- **Deployment (Days 9-10):**
+    - This is the process of releasing the software to the production environment, making it available to end-users.
+    - Deployment may involve various activities, such as configuring servers, installing software, and migrating data.
+    - Deployment should be done in a way that minimizes disruption to users.
+    - Post-deployment monitoring may be necessary to ensure the software is working correctly.
+- **Sprint Retrospective Meeting (Every 2 Sprints):**
+    - At the end of every two sprints, the team reflects on the process and identifies areas for improvement.
+    - They discuss what went well, what didn't, and what changes they can implement in future sprints to increase efficiency and effectiveness.
+    - The focus of the retrospective is on continuous improvement.
+    - The Scrum Master encourages team members to share their thoughts honestly and openly.
