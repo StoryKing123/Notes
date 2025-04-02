@@ -12,6 +12,26 @@
 12. Why are you leaving your present job?
 13. Have you ever Had a conflict with a Team Member? How Did you handle IT?
 
+
+# What Are Your Greatest Strengths
+```
+My greatest strengths include problem-solving, cost- consciousness, collaboration and responsiveness. When problems occur in a team, I take the lead to resolve them. I take care of company supplies and resources to help save money and will find ways to make systems and processes efficient. I am a strong collaborator, support my co-workers and focus intently on my team's objectives. Finally, my responsiveness means I act quickly resulting in increased work output.
+```
+
+# Why do you want to leave your job?
+```
+I want to leave my current job simply because I have reached my full potential and would like a change.
+
+My employer has been great to work for, and we have achieved many positive things while I have been there.
+
+However, I am now ready for the next chapter of my career, where I can learn new skills and collaborate with other ambitious people who want to make a positive impact in their work.
+```
+
+# Why do you want this job
+```
+I want this job for two reasons. First, it is a role I am passionate about. We spend a lot of time at work, and I want that time to be spent doing something I love. The second reason I want this job is because it is with your company. You have a great reputation in the industry and people I have spoken to who already work here have said great things about the management team and how you support staff to reach their full potential.
+```
+
 # What Project are you most proud of and why?
 
 ```
@@ -27,7 +47,7 @@ This experience not only strengthened my problem-solving skills but also deepene
 
 # biggest weakness　
 ```
-My biggest weakness is my tendency to be a perfectionist. I often spend too much time on details that may not significantly impact the overall project. To address this, I have started setting more specific deadlines for each task and practicing letting go of non-essential details. This approach has helped me become more efficient while still maintaining high standards.
+My biggest weakness is that I often spend too much time on details that may not significantly impact the overall project. To address this, I have started setting more specific deadlines for each task and practicing letting go of non-essential details. This approach has helped me become more efficient while still maintaining high standards.
 ```
 
 
@@ -39,4 +59,25 @@ In my previous job, I encountered a conflict with a colleague over project prior
 # 如何管理你的时间和任务
 ```
 I use a combination of tools and techniques to manage my time and tasks effectively. I start by breaking down larger projects into smaller, manageable tasks and prioritizing them based on deadlines and importance. I utilize tools like project management software and calendar apps to keep track of deadlines and stay organized. Regularly reviewing and adjusting my plans ensures that I stay on track and meet objectives without feeling overwhelmed.
+```
+
+
+# Question Asking
+```
+Based on your experience, what is the biggest challenge this job faces?
+```
+
+
+# Where Do You See Yourself In Five Years?
+```
+In five years, I would like to be working for your company in this role with lots more responsibility or having earned a promotion._
+
+In five years, I would specialize in several business areas, gain experience across different departments to expand my company knowledge and be an irreplaceable team asset.
+
+**In five years, I would also like to be someone the company could use to help train new hires, which will develop my coaching skills.**
+```
+
+# Where Do You See Yourself In Five Years.
+```
+TBD
 ```
