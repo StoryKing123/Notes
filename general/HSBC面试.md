@@ -16,6 +16,12 @@
 # What Are Your Greatest Strengths
 ```
 My greatest strengths include problem-solving, cost- consciousness, collaboration and responsiveness. When problems occur in a team, I take the lead to resolve them. I take care of company supplies and resources to help save money and will find ways to make systems and processes efficient. I am a strong collaborator, support my co-workers and focus intently on my team's objectives. Finally, my responsiveness means I act quickly resulting in increased work output.
+
+
+
+My greatest strengths include technical problem-solving, code optimization, cross-functional collaboration, and adaptability. When complex engineering challenges arise within a team, I take initiative to analyze root causes and architect solutions. I'm passionate about writing efficient code that optimizes performance and reduces technical debt, which translates to cost savings and better user experiences.
+
+I excel at collaboration across engineering teams and with product managers, designers, and stakeholders to ensure we're building the right solutions. My deep technical knowledge allows me to mentor junior developers while also contributing to system design discussions. Finally, my responsiveness to changing requirements and emerging technologies means I can quickly pivot development approaches when needed, resulting in more resilient software and faster time-to-market for critical features.
 ```
 
 # Why do you want to leave your job?
@@ -65,19 +71,43 @@ I use a combination of tools and techniques to manage my time and tasks effectiv
 # Question Asking
 ```
 Based on your experience, what is the biggest challenge this job faces?
+Can you tell me more about the team I would be a part of in this role and their responsibilities.
 ```
 
 
 # Where Do You See Yourself In Five Years?
 ```
-In five years, I would like to be working for your company in this role with lots more responsibility or having earned a promotion._
-
-In five years, I would specialize in several business areas, gain experience across different departments to expand my company knowledge and be an irreplaceable team asset.
-
-**In five years, I would also like to be someone the company could use to help train new hires, which will develop my coaching skills.**
+In five years, I envision myself in a technical leadership position, guiding system architecture decisions while mentoring junior engineers. I plan to deepen my expertise in scalable software design and emerging technologies that drive business value. I aim to lead complex projects that significantly impact our product's success, while continuing to contribute code to critical components. My goal is to balance hands-on engineering with strategic technical leadership, helping to shape our engineering culture and technology roadmap while solving our most challenging technical problems.
 ```
 
-# Where Do You See Yourself In Five Years.
+
+# What Experience do you have
 ```
-TBD
+
+```
+
+
+# What's your greatest achievement
+```
+
+```
+
+# Tell me about a time when you made a mistake 
+```
+
+```
+
+# How do you Prioritize your work
+```
+I prioritize my work by assessing tasks based on their impact, urgency, and alignment with project goals. I focus first on high-priority deliverables that drive key outcomes, collaborating with stakeholders to clarify requirements. I break complex projects into manageable steps, tackling critical dependencies early. I also allocate time for code reviews and mentoring, ensuring team efficiency. By staying adaptable and using tools like task trackers, I balance deadlines with quality, adjusting priorities as needed to meet evolving demands.
+```
+
+# What motivates you
+```
+I’m motivated by the opportunity to solve complex problems and create impactful solutions. I thrive on pushing technological boundaries, collaborating with talented teams, and delivering high-quality, innovative software. The chance to work on cutting-edge projects, like those at xAI, inspires me to continuously learn and refine my skills. I’m driven by the satisfaction of seeing my code make a real difference, whether it’s advancing AI capabilities or improving user experiences. Passion for technology and meaningful contributions keep me motivated every day.
+```
+
+
+# Why should we hire you
+```
 ```
